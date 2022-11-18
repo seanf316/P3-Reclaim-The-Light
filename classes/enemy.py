@@ -31,7 +31,7 @@ class Enemy:
         """
         Gets Enemy current defense stat
         """
-        return self.enemy_name()
+        return self.enemy_name
 
     def set_health(self, new_health):
         """
