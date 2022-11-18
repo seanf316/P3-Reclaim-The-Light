@@ -1,0 +1,6 @@
+Exotic,Falling Guilotine,15,attack,
+Exotic,Ticuu's Divination,15,ranged,
+Exotic,Heart of Inmost Light,15,defence,
+Exotic,Eye of Osiris,15,magic,
+Exotic,4 Leaf Clover,8,luck,
+Exotic,Elixser of Life,15,health,

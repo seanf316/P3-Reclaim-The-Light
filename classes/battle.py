@@ -1,5 +1,6 @@
 import random
 import math
+from pprint import pprint
 import colorama
 from guardian import Guardian
 from enemy import Enemy, Boss
@@ -36,7 +37,7 @@ def enemy_spawn(level_boss):
         return Boss(health, attack, chance, boss, super_move)
 
 
-def enemy_attack(strike_chance, attack_value, name, defence):
+def enemyAttack(strike_chance, attack_value, name, defence):
     """
     Sets up Enemy attack and uses random to see if successful
     """
@@ -76,3 +77,79 @@ def isDead(health):
         return True
     else:
         return False
+
+
+def loot(luck, genChar):
+    loot_chance = random.randint(0, 4)
+    if luck < loot_chance:
+        print("That creature dropped no loot...")
+
+    else:
+        lootList = ["common.txt", "legandary.txt", "exotic.txt"]
+        listnum = random.randint(0, 2)
+        itemType = lootList[listnum]
+        file = open(itemType, "r")
+        lines = file.readlines()
+
+        item = random.randint(0, len(lines)-1)
+
+        itemLine = lines[item]
+        splitItemLine = itemLine.split(",")
+
+        rarity = splitItemLine[0]
+        name = splitItemLine[1]
+        value = int(splitItemLine[2])
+        assign = splitItemLine[3]
+
+        if rarity == "Exotic":
+            print("The enemy dropped an....")
+            print(rarity, "item - ", name)
+        else:
+            print("The enemy dropped a....")
+            print(rarity, "item - ", name)
+
+        if assign == "attack":
+            genChar.setAttack(genChar.getAttack()+value)
+            print("Your new Close Attack stat is...")
+            print(genChar.getAttack())
+
+        elif assign == "ranged":
+            genChar.setRanged(genChar.getRanged()+value)
+            print("Your new Ranged Attack stat is...")
+            print(genChar.getRanged())
+
+        elif assign == "defence":
+            genChar.setDefence(genChar.getDefence()+value)
+            print("Your new Defence stat is...")
+            print(genChar.getDefence())
+
+        elif assign == "magic":
+            genChar.setMagic(genChar.getMagic()+value)
+            print("Your new Magic Attack stat is...")
+            print(genChar.getMagic())
+
+        else:
+            if assign == "luck":
+                genChar.setLuck(genChar.getLuck()+value)
+                print("Your new Luck stat is...")
+                print(genChar.getLuck())
+
+            elif assign == "health":
+                genChar.setHealth(genChar.getHealth()+value)
+                print("Your new Health stat is...")
+                print(genChar.getHealth())
+
+
+genChar = Guardian(100, 10, 11, 12, 1, 14, "LEE!")
+
+
+pprint(vars(genChar))
+
+loot(100, genChar)
+loot(100, genChar)
+loot(100, genChar)
+loot(100, genChar)
+loot(100, genChar)
+loot(100, genChar)
+
+pprint(vars(genChar))
