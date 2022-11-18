@@ -1,0 +1,25 @@
+Dreg
+Vandal
+Stealth Vandal
+Captain
+Shank
+Servitor
+Skiff
+Thrall
+Cursed Thrall
+Acolyte
+Knight
+Wizard
+Ogre
+Shrieker
+Goblin
+Hobgoblin
+Harpy
+Hydra
+Minotaur
+Cyclops
+Legionary
+Phalanx
+Centurion
+Colossus
+Psion
