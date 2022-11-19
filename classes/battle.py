@@ -1,22 +1,74 @@
 import random
 import math
+import time
 from pprint import pprint
 import colorama
 from guardian import Guardian
 from enemy import Enemy, Boss
+from mixins import ClearDisplayMixin, TypeWriter
 from colorama import Fore
 colorama.init(autoreset=True)
 
 
-def enemy_spawn(level_boss):
+def createGuardian():
+    ClearDisplayMixin.clear_display()
+    name = input("What is your name Guardian: ").capitalize()
+    while len(name.strip(" ")) == 0:
+            print("I appreciate that you may want to keep your identity a "
+                  "secret but we require a name to join our ranks....")
+            name = input("What is your name Guardian: ")
+    print(
+        f'\nWell {name} What kind of Guardian are you?\n'
+        'Would you consider yourself a (W)arrior, an (A)ssassin '
+        'or a (M)age?\n')
+    a = input(f"{Fore.GREEN}Enter 'W', 'A' or 'M': ").lower().strip(" ")
+    while a != "w" and a != "a" and a != "m":
+        print(
+            'Invalid input - Enter "W" for "Warrior", "A" for "Assassin"'
+            ', "M" for "Mage"\n')
+        a = input(f"{Fore.GREEN}Enter 'W', 'A' or 'M': ").lower().strip(" ")
+
+    if a == "w":
+        TypeWriter.typingPrint("\nGenerating Guardian.....")
+        attack = 10
+        defense = 10
+        health = 100
+        luck = random.randint(0, 10)
+        ranged = 5
+        magic = 5
+        
+
+    elif a == "a":
+        TypeWriter.typingPrint("\nGenerating Guardian.....")
+        attack = 5
+        defense = 8
+        health = 100
+        ranged = 12
+        magic = 5
+        luck = random.randint(0, 10)
+
+    else:
+        TypeWriter.typingPrint("\nGenerating Guardian.....\n")
+        attack = 4
+        defense = 12
+        health = 100
+        ranged = 6
+        magic = 10
+        luck = random.randint(0, 10)
+
+    ClearDisplayMixin.clear_display()
+    return (attack, defense, health, luck, magic, name, ranged)
+
+
+def genEnem(level_boss):
     """
     Spawn a random enemy or boss and assigns stats
     """
-    file = open('enemy.txt', 'r')
+    file = open('enemy.txt', 'r', encoding="utf8")
     lines = file.readlines()
     enemy = lines[random.randint(0, len(lines)-1)][:-1]
     file.close()
-    file = open('boss.txt', 'r')
+    file = open('boss.txt', 'r', encoding="utf8")
     lines = file.readlines()
     boss = lines[random.randint(0, len(lines)-1)][:-1]
     file.close()
@@ -37,11 +89,25 @@ def enemy_spawn(level_boss):
         return Boss(health, attack, chance, boss, super_move)
 
 
+def strike_chance(luck):
+    """
+    Sets up Guardian attack and uses random to see if successful
+    """
+    strike = random.randint(0, 4)
+    if luck < strike:
+        print("You missed!")
+        return False
+
+    else:
+        return True
+
+
 def enemyAttack(strike_chance, attack_value, name, defence):
     """
     Sets up Enemy attack and uses random to see if successful
     """
-    print(name, "is about to strike...")
+    print(name, "is about to strike...\n")
+    time.sleep(0.9)
     strike = random.randint(0, 10)
     if strike_chance >= strike:
         print(f"{name} has struck you successfully...")
@@ -53,20 +119,6 @@ def enemyAttack(strike_chance, attack_value, name, defence):
     else:
         print("The enemy misses!")
         return 0
-
-
-def strike_chance(luck):
-    """
-    Sets up Guardian attack and uses random to see if successful
-    """
-    strike = random.randint(0, 4)
-    if luck < strike:
-        print("You missed!")
-        return False
-
-    else:
-        print("You struck the enemy!")
-        return True
 
 
 def isDead(health):
@@ -91,7 +143,7 @@ def loot(luck, genChar):
         lootList = ["common.txt", "legandary.txt", "exotic.txt"]
         listnum = random.randint(0, 2)
         itemType = lootList[listnum]
-        file = open(itemType, "r")
+        file = open(itemType, "r", encoding="utf8")
         lines = file.readlines()
 
         item = random.randint(0, len(lines)-1)
@@ -155,23 +207,26 @@ def gameOver(enemyDead):
         print("The foul beast has struck you down Guardian....")
 
 
-def battle(enemy_spawn, genChar):
-    print("Whats that coming over the hill?????")
-    print("Its a...", enemy_spawn.get_enemy_name(), "Looking for a fight!")
-    print("Check out its stats....")
-    pprint(vars(enemy_spawn))
+def battle(genEnem, genChar):
+    print(f"Its... {Fore.RED}{genEnem.getEName()}{Fore.WHITE}"
+          f", and they look ready for a fight!\n")
+    print(f"Check out {Fore.RED}{genEnem.getEName()}'s{Fore.WHITE} stats...\n")
+    stats = vars(genEnem)
+    for key, value in stats.items():
+        pprint(f"{key.capitalize()} : {value}")
 
     battle = True
 
     while battle:
         print(
-            '\nYou have engaged the creature, which attack would you like to'
-            ' use:\n "C" for "Close", "R" for "Ranged", "M" for "Magic" attack?\n')
+            "\nYou have engaged the creature, which attack would you like to"
+            f" use:\n {Fore.GREEN}'C' for 'Close', 'R' for 'Ranged'"
+            f", 'M' for 'Magic' attack?\n")
         choice = input("Enter 'C', 'R' or 'M': ").lower().strip(" ")
         while choice != "c" and choice != "r" and choice != "m":
             print(
-            'Invalid input - Enter "C" for "Close", "R" for "Ranged"'
-            ', "M" for "Magic"\n')
+                'Invalid input - Enter "C" for "Close", "R" for "Ranged"'
+                ', "M" for "Magic"\n')
             choice = input("Enter 'C', 'R' or 'M': ").lower().strip(" ")
 
         if choice == "c":
@@ -182,50 +237,77 @@ def battle(enemy_spawn, genChar):
 
         else:
             damage = genChar.getMagic()
-
-        print("You wind up for the attack!!...")
+        ClearDisplayMixin.clear_display()
+        TypeWriter.typingPrint("You wind up for the attack!!...\n")
+        time.sleep(0.8)
         strike = strike_chance(genChar.getLuck())
-        
+
         if strike:
-            enemy_spawn.set_health(enemy_spawn.get_health() - damage)
-            print(f"You struck the enemy, {Fore.RED}blood gushes....")
-            print(f"{enemy_spawn.get_enemy_name()}'s health is now {enemy_spawn.get_health()}")
+            genEnem.setEHealth(genEnem.getEHealth() - damage)
+            print(f"You struck the enemy, {Fore.RED}{genEnem.getEName()}'s"
+                  f" blood gushes....\n")
+            print(f"{genEnem.getEName()}'s health is now {genEnem.getEHealth()}")
 
         else:
             print("Enemy dodged your attack")
-        
-        enemyDead = isDead(enemy_spawn.get_health())
-        
+
+        enemyDead = isDead(genEnem.getEHealth())
+
         if not enemyDead:
-            genChar.setHealth(genChar.getHealth() - enemyAttack(enemy_spawn.get_chance(), enemy_spawn.get_attack(), enemy_spawn.get_enemy_name(), genChar.getDefence()))
-            
+            genChar.setHealth(genChar.getHealth() - enemyAttack
+                              (genEnem.getEChance(),
+                               genEnem.getEAttack(),
+                               genEnem.getEName(),
+                               genChar.getDefence()))
+
             guardianDead = isDead(genChar.getHealth())
-            
+
             if guardianDead:
                 battle = False
                 return False
-            
+
             else:
-                print("Guardian's remaining health is....", genChar.getHealth())
-                
+                print("Guardian's remaining health is....",
+                      genChar.getHealth())
+
         else:
             battle = False
-            print(enemy_spawn.get_enemy_name(), "has been slain")
+            print(genEnem.getEName(), "has been slain")
             loot(genChar.getLuck(), genChar)
             return True
-        
-levelBoss = True
-
-genChar = Guardian(100, 90, 11, 12, 1, 14, "LEE!")
 
 
-pprint(vars(genChar))
+def levelGenerator(character, level):
 
-whoDied = battle(enemy_spawn(levelBoss), genChar)
-gameOver(whoDied)
+    maxNumberOfEnemies = math.ceil(level*5)
+    for x in range(0, maxNumberOfEnemies):
+        bossChance = random.randint(1, 10)
+        if bossChance > 7:
+            levelBoss = True
 
-whoDied = battle(enemy_spawn(levelBoss), genChar)
-gameOver(whoDied)
+        else:
+            levelBoss = False
 
-whoDied = battle(enemy_spawn(levelBoss), genChar)
-gameOver(whoDied)
+        characterDead = battle(genEnem(levelBoss), character)
+        gameOver(characterDead)
+
+
+def main():
+    classData = createGuardian()
+    character = Guardian(classData[0], classData[1], classData[2],
+                         classData[3], classData[4], classData[5], classData[6])
+    print("Your Guardians Stats are -\n")
+    pprint(vars(character))
+    print("\nLevel 1...")
+    levelGenerator(character, 1)
+    print("\nLevel 2...")
+    levelGenerator(character, 2)
+    print("\nLevel 3...")
+    levelGenerator(character, 3)
+    print("\nLevel 4...")
+    levelGenerator(character, 4)
+    print("\nYOU WON!!!!!")
+    pprint(vars(character))
+
+
+main()
