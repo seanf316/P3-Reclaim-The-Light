@@ -3,14 +3,14 @@ class Guardian:
     Creates the Guardian object
     *"g" refers to Guardian
     """
-    def __init__(self, Ghealth, Gattack, Granged,
-                 Gmagic, Gdefence, Gluck, Gname):
-        self.health = Ghealth
+    def __init__(self, Gattack, Gdefence, Ghealth, Gluck, Gmagic, Granged,
+                 Gname):
         self.attack = Gattack
-        self.ranged = Granged
-        self.magic = Gmagic
         self.defence = Gdefence
+        self.health = Ghealth
         self.luck = Gluck
+        self.magic = Gmagic
+        self.ranged = Granged
         self.name = Gname
 
     def getHealth(self):

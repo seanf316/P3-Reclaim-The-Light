@@ -5,20 +5,20 @@ from pprint import pprint
 import colorama
 from guardian import Guardian
 from enemy import Enemy, Boss
-from mixins import ClearDisplayMixin, TypeWriter
+import mixins
 from colorama import Fore
 colorama.init(autoreset=True)
 
 
-def createGuardian():
-    ClearDisplayMixin.clear_display()
+def genChar():
+    mixins.clear_display()
     name = input("What is your name Guardian: ").capitalize()
     while len(name.strip(" ")) == 0:
-            print("I appreciate that you may want to keep your identity a "
-                  "secret but we require a name to join our ranks....")
-            name = input("What is your name Guardian: ")
+        print("I appreciate that you may want to keep your identity a "
+              "secret but we require a name to join our ranks....")
+        name = input("What is your name Guardian: ")
     print(
-        f'\nWell {name} What kind of Guardian are you?\n'
+        f'\nWell {name} what kind of Guardian are you?\n'
         'Would you consider yourself a (W)arrior, an (A)ssassin '
         'or a (M)age?\n')
     a = input(f"{Fore.GREEN}Enter 'W', 'A' or 'M': ").lower().strip(" ")
@@ -29,17 +29,16 @@ def createGuardian():
         a = input(f"{Fore.GREEN}Enter 'W', 'A' or 'M': ").lower().strip(" ")
 
     if a == "w":
-        TypeWriter.typingPrint("\nGenerating Guardian.....")
+        mixins.typingPrint("\nGenerating Guardian.....")
         attack = 10
         defense = 10
         health = 100
         luck = random.randint(0, 10)
         ranged = 5
         magic = 5
-        
 
     elif a == "a":
-        TypeWriter.typingPrint("\nGenerating Guardian.....")
+        mixins.typingPrint("\nGenerating Guardian.....")
         attack = 5
         defense = 8
         health = 100
@@ -48,16 +47,16 @@ def createGuardian():
         luck = random.randint(0, 10)
 
     else:
-        TypeWriter.typingPrint("\nGenerating Guardian.....\n")
+        mixins.typingPrint("\nGenerating Guardian.....\n")
         attack = 4
-        defense = 12
+        defense = 6
         health = 100
-        ranged = 6
-        magic = 10
+        ranged = 8
+        magic = 12
         luck = random.randint(0, 10)
 
-    ClearDisplayMixin.clear_display()
-    return (attack, defense, health, luck, magic, name, ranged)
+    mixins.clear_display()
+    return (attack, defense, health, luck, magic, ranged, name)
 
 
 def genEnem(level_boss):
@@ -93,8 +92,8 @@ def strike_chance(luck):
     """
     Sets up Guardian attack and uses random to see if successful
     """
-    strike = random.randint(0, 4)
-    if luck < strike:
+    hit = random.randint(0, 4)
+    if luck < hit:
         print("You missed!")
         return False
 
@@ -237,8 +236,8 @@ def battle(genEnem, genChar):
 
         else:
             damage = genChar.getMagic()
-        ClearDisplayMixin.clear_display()
-        TypeWriter.typingPrint("You wind up for the attack!!...\n")
+        mixins.clear_display()
+        mixins.typingPrint("You wind up for the attack!!...\n")
         time.sleep(0.8)
         strike = strike_chance(genChar.getLuck())
 
@@ -246,7 +245,8 @@ def battle(genEnem, genChar):
             genEnem.setEHealth(genEnem.getEHealth() - damage)
             print(f"You struck the enemy, {Fore.RED}{genEnem.getEName()}'s"
                   f" blood gushes....\n")
-            print(f"{genEnem.getEName()}'s health is now {genEnem.getEHealth()}")
+            print(
+                f"{genEnem.getEName()}'s health is now {genEnem.getEHealth()}")
 
         else:
             print("Enemy dodged your attack")
@@ -293,21 +293,10 @@ def levelGenerator(character, level):
 
 
 def main():
-    classData = createGuardian()
+    classData = genChar()
     character = Guardian(classData[0], classData[1], classData[2],
-                         classData[3], classData[4], classData[5], classData[6])
+                         classData[3], classData[4], classData[5],
+                         classData[6])
     print("Your Guardians Stats are -\n")
-    pprint(vars(character))
-    print("\nLevel 1...")
-    levelGenerator(character, 1)
-    print("\nLevel 2...")
-    levelGenerator(character, 2)
-    print("\nLevel 3...")
-    levelGenerator(character, 3)
-    print("\nLevel 4...")
-    levelGenerator(character, 4)
-    print("\nYOU WON!!!!!")
-    pprint(vars(character))
+    print(vars(character))
 
-
-main()
