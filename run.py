@@ -1,6 +1,10 @@
-from classes.game import Game
-from classes.mixins import ClearDisplayMixin
+"""
+Run Game
+"""
+
+from game import welcome_screen
+import functions
 
 if __name__ == '__main__':
-    ClearDisplayMixin.clear_display()
-    game = Game()
+    functions.clear_display()
+    welcome_screen()

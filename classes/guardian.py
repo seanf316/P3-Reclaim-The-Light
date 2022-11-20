@@ -1,98 +1,103 @@
+"""
+Guardian Class
+"""
+
+
 class Guardian:
     """
     Creates the Guardian object
     *"g" refers to Guardian
     """
-    def __init__(self, Gattack, Gdefence, Ghealth, Gluck, Gmagic, Granged,
-                 Gname):
-        self.attack = Gattack
-        self.defence = Gdefence
-        self.health = Ghealth
-        self.luck = Gluck
-        self.magic = Gmagic
-        self.ranged = Granged
-        self.name = Gname
+    def __init__(self, g_attack, g_defence, g_health, g_luck, g_magic,
+                 g_ranged, g_name):
+        self.attack = g_attack
+        self.defence = g_defence
+        self.health = g_health
+        self.luck = g_luck
+        self.magic = g_magic
+        self.ranged = g_ranged
+        self.name = g_name
 
-    def getHealth(self):
+    def get_health(self):
         """
         Gets Guardian current health stat
         """
         return self.health
 
-    def getAttack(self):
+    def get_attack(self):
         """
         Gets Guardian current close attack stat
         """
         return self.attack
 
-    def getRanged(self):
+    def get_ranged(self):
         """
         Gets Guardian current ranged attack stat
         """
         return self.ranged
 
-    def getMagic(self):
+    def get_magic(self):
         """
         Gets Guardian current magic attack stat
         """
         return self.magic
 
-    def getDefence(self):
+    def get_defence(self):
         """
         Gets Guardian current defence stat
         """
         return self.defence
 
-    def getLuck(self):
+    def get_luck(self):
         """
         Gets Guardian current defence stat
         """
         return self.luck
 
-    def getName(self):
+    def get_name(self):
         """
         Gets Guardian current defence stat
         """
         return self.name
 
-    def setHealth(self, newHealth):
+    def set_health(self, new_health):
         """
         Gets Guardian current health stat
         """
-        self.health = newHealth
+        self.health = new_health
 
-    def setAttack(self, newAttack):
+    def set_attack(self, new_attack):
         """
         Gets Guardian current close attack stat
         """
-        self.attack = newAttack
+        self.attack = new_attack
 
-    def setRanged(self, newRanged):
+    def set_ranged(self, new_ranged):
         """
         Gets Guardian current ranged attack stat
         """
-        self.ranged = newRanged
+        self.ranged = new_ranged
 
-    def setMagic(self, newMagic):
+    def set_magic(self, new_magic):
         """
         Gets Guardian current magic attack stat
         """
-        self.magic = newMagic
+        self.magic = new_magic
 
-    def setDefence(self, newDefence):
+    def set_defence(self, new_defence):
         """
         Gets Guardian current defence stat
         """
-        self.defence = newDefence
+        self.defence = new_defence
 
-    def setLuck(self, newLuck):
+    def set_luck(self, new_luck):
         """
         Gets Guardian current defence stat
         """
-        self.luck = newLuck
+        self.luck = new_luck
 
-    def setName(self, newName):
+    def set_name(self, new_name):
         """
         Gets Guardian current defence stat
         """
-        self.name = newName
+        self.name = new_name
