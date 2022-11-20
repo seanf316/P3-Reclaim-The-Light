@@ -2,13 +2,12 @@
 Reclaim The Light Adventure Game
 """
 
-from pprint import pprint
 from getch import pause
 import colorama
 from colorama import Fore, Style
 import ascii_art
 import functions
-from classes.guardian import Guardian
+import adventure
 
 colorama.init(autoreset=True)
 
@@ -31,17 +30,7 @@ def welcome_screen():
                         f'About{Style.RESET_ALL}:\n').lower().strip(" ")
         if choices == "s":
             menu = False
-            class_data = functions.gen_char()
-            character = Guardian(class_data[0], class_data[1], class_data[2],
-                                 class_data[3], class_data[4], class_data[5],
-                                 class_data[6])
-            print(f"{Fore.GREEN}Your Guardians Stats")
-            print(f"{Fore.GREEN}--------------------")
-            stats = vars(character)
-            for key, value in stats.items():
-                pprint(f"{key.capitalize()} : {value}")
-            pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
-
+            adventure.act_1()
         elif choices == "m":
             menu = False
             functions.clear_display()

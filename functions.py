@@ -11,6 +11,7 @@ from pprint import pprint
 import colorama
 from colorama import Fore, Style
 import ascii_art
+from classes.guardian import Guardian
 from classes.enemy import Enemy, Boss
 colorama.init(autoreset=True)
 
@@ -95,15 +96,15 @@ def gen_char():
         magic = 12
         luck = random.randint(0, 10)
 
-    clear_display()
-    return (attack, defense, health, luck, magic, ranged, name)
+    character = Guardian(attack, defense, health, luck, magic, ranged, name)
+    return character
 
 
 def gen_enemy():
     """
     Spawn a random enemy and assigns stats
     """
-    file = open('docs.enemy.txt', 'r', encoding="utf8")
+    file = open('docs/enemy.txt', 'r', encoding="utf8")
     lines = file.readlines()
     enemy = lines[random.randint(0, len(lines)-1)][:-1]
     file.close()
@@ -119,7 +120,7 @@ def gen_boss():
     """
     Spawn a random enemy and assigns stats
     """
-    file = open('docs.boss.txt', 'r', encoding="utf8")
+    file = open('docs/boss.txt', 'r', encoding="utf8")
     lines = file.readlines()
     boss = lines[random.randint(0, len(lines)-1)][:-1]
     file.close()
@@ -182,8 +183,8 @@ def loot(luck, gen_char):
         print("That creature dropped no loot...")
 
     else:
-        loot_list = ["docs.common.txt", "docs.legandary.txt",
-                     "docs.exotic.txt"]
+        loot_list = ["docs/common.txt", "docs/legandary.txt",
+                     "docs/exotic.txt"]
         listnum = random.randint(0, 2)
         item_type = loot_list[listnum]
         file = open(item_type, "r", encoding="utf8")
@@ -204,7 +205,7 @@ def loot(luck, gen_char):
             print(f"{Fore.YELLOW}{rarity} item - {name}")
 
         elif rarity == "Legendary":
-            print("The enemy dropped an....")
+            print("The enemy dropped a....")
             print(f"{Fore.MAGENTA}{rarity} item - {name}")
 
         else:
@@ -257,9 +258,11 @@ def battle(gen_enemy, gen_char):
     """
     Function to handle battle sequence between Guardian and Enemy
     """
-    print(f"Its... {Fore.RED}{gen_enemy.getEName()}{Fore.WHITE}"
+    clear_display()
+    print(f"Its... {Fore.RED}{gen_enemy.get_e_name()}{Fore.WHITE}"
           f", and they look ready for a fight!\n")
-    print(f"Check out {Fore.RED}{gen_enemy.getEName()}'s{Fore.WHITE} stats:\n")
+    print(
+        f"Check out {Fore.RED}{gen_enemy.get_e_name()}'s{Fore.WHITE} stats:\n")
     stats = vars(gen_enemy)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
@@ -296,7 +299,7 @@ def battle(gen_enemy, gen_char):
             print(f"You struck the enemy, {Fore.RED}{gen_enemy.get_e_name()}'s"
                   f" blood gushes....\n")
             print(
-                f"{gen_enemy.get_e_name()}'s health is now"
+                f"{gen_enemy.get_e_name()}'s health is now "
                 f"{gen_enemy.get_e_health()}")
 
         else:
