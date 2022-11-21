@@ -21,7 +21,7 @@ def welcome_screen():
     Displays Game title, provides mission log and game rules
     """
     functions.clear_display()
-    print(Fore.GREEN + ascii_art.TITLE)
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.TITLE)
 
     menu = True
     while menu:
