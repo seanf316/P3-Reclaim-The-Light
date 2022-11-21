@@ -34,12 +34,15 @@ def welcome_screen():
                         f'About{Style.RESET_ALL}:\n').lower().strip(" ")
         if choices == "s":
             menu = False
+            functions.clear_display()
             act_1()
         elif choices == "m":
             menu = False
+            functions.clear_display()
             mission_log()
         elif choices == "a":
             menu = False
+            functions.clear_display()
             about()
         else:
             print("That was an invalid input, please enter S,M,I\n")
@@ -50,7 +53,7 @@ def mission_log():
     Povides the player with a mission log for the game
     """
     functions.clear_display()
-    print(Fore.GREEN + ascii_art.MISSION_LOG)
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.MISSION_LOG)
     functions.typing_print(
         "\nThe last city was attacked by the colition of Darkness.\n"
         "Their aim was to acquire the last city's light crystal the source\n"
@@ -71,7 +74,7 @@ def about():
     Shows player the about section for the game
     """
     functions.clear_display()
-    print(Fore.GREEN + ascii_art.ABOUT)
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.ABOUT)
     print(f"{Fore.GREEN}{Style.BRIGHT}Welcome to Reclaim The Light")
     print(
         "\nReclaim The Light is a text adventure game where the outcome\n"
@@ -91,7 +94,7 @@ def about():
         'they havea high ranged attack & a good defense stat but fall away\n'
         'when it comes to close attack or magic attack.\n'
         f'\n{Fore.GREEN}{Style.BRIGHT}Mage:\n{Style.RESET_ALL}'
-        'A Mage likes to stick to their magic attacks when fightingfoes but\n'
+        'A Mage likes to stick to their magic attacks when fighting foes but\n'
         'is not afraid to use a weapon, they have the best in class magic\n'
         'attack & a good ranged stat but fall away when it comes to close\n'
         'attack or defense.\n')
@@ -126,15 +129,15 @@ def act_1():
     global character
     character = functions.gen_char()
     functions.clear_display()
-    print(Fore.GREEN + ascii_art.STATS)
-    print(f"{Fore.GREEN}Your Guardians Stats")
-    print(f"{Fore.GREEN}--------------------")
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.STATS)
+    print(f"{Fore.GREEN}{Style.BRIGHT}Your Guardians Stats")
+    print(f"{Fore.GREEN}{Style.BRIGHT}--------------------")
     stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
     functions.clear_display()
-    print(Fore.GREEN + ascii_art.NESSUS)
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.NESSUS)
     functions.typing_print(story.NESSUS)
     path_choice('\nWould you like to go through the Jungle'
                 ' or Village? Enter J or V:\n',
@@ -149,7 +152,7 @@ def jungle():
     Function for Jungle narrative
     """
     functions.clear_display()
-    print(Fore.GREEN + ascii_art.JUNGLE)
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.JUNGLE)
     functions.typing_print(story.JUNGLE)
     path_choice('\nInvestigate outpost or Continue on the jungle path? '
                 'Enter I or C:\n',
@@ -173,7 +176,7 @@ def encounter_1():
     functions.typing_print(story.ENCOUNTER_1)
     time.sleep(.75)
     functions.clear_display()
-    print(Fore.RED + ascii_art.ENCOUNTER_1)
+    print(Fore.RED + Style.BRIGHT + ascii_art.ENCOUNTER_1)
     time.sleep(.75)
     functions.clear_display()
     functions.typing_print('What was that? the outpost is now little but there'

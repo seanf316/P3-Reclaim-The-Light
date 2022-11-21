@@ -49,7 +49,7 @@ def gen_char():
     Function generates Guardian
     """
     clear_display()
-    print(Fore.GREEN + ascii_art.WELCOME)
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.WELCOME)
     name = input("What is your name Guardian: ").capitalize()
     while len(name.strip(" ")) == 0:
         print("I appreciate that you may want to keep your identity a "
@@ -57,18 +57,20 @@ def gen_char():
         name = input("What is your name Guardian: ")
     print(
         f'\nWell {name} what kind of Guardian are you?\n'
-        f'\nWould you consider yourself a {Fore.GREEN}'
+        f'\nWould you consider yourself a {Fore.GREEN}{Style.BRIGHT}'
         f'(W)arrior{Style.RESET_ALL}, an '
-        f'{Fore.GREEN}(A)ssassin{Style.RESET_ALL} or a '
-        f'{Fore.GREEN}(M)age?\n')
+        f'{Fore.GREEN}{Style.BRIGHT}(A)ssassin{Style.RESET_ALL} or a '
+        f'{Fore.GREEN}{Style.BRIGHT}(M)age?\n')
     user_choice = input(
-        f"{Fore.GREEN}Enter 'W', 'A' or 'M': ").lower().strip(" ")
+        f"{Fore.GREEN}{Style.BRIGHT}Enter 'W',"
+        f"'A' or 'M': ").lower().strip(" ")
     while user_choice != "w" and user_choice != "a" and user_choice != "m":
         print(
             'Invalid input - Enter "W" for "Warrior", "A" for "Assassin"'
             ', "M" for "Mage"\n')
         user_choice = input(
-            f"{Fore.GREEN}Enter 'W', 'A' or 'M': ").lower().strip(" ")
+            f"{Fore.GREEN}{Style.BRIGHT}Enter 'W',"
+            f"'A' or 'M': ").lower().strip(" ")
 
     if user_choice == "w":
         typing_print("\nGenerating Guardian.....")
@@ -154,10 +156,11 @@ def enemy_attack(strike_chance, attack_value, name, defence):
     time.sleep(0.9)
     strike = random.randint(0, 10)
     if strike_chance >= strike:
-        print(f"{name} has struck you successfully...")
+        print(
+            f"{Fore.RED}{Style.BRIGHT}{name} has struck you successfully...\n")
         loss = attack_value - defence
-        print(f"You feel the warm heat of {Fore.RED}blood...")
-        print("you stagger back losing", loss, "health.")
+        print(f"You feel the warm heat of {Fore.RED}{Style.BRIGHT}blood...\n")
+        print("you stagger back losing", loss, "health.\n")
         return math.ceil(loss)
 
     else:
@@ -203,15 +206,15 @@ def loot(luck, gen_char):
 
         if rarity == "Exotic":
             print("The enemy dropped an....")
-            print(f"{Fore.YELLOW}{rarity} item - {name}")
+            print(f"{Fore.YELLOW}{Style.BRIGHT}{rarity} item - {name}")
 
         elif rarity == "Legendary":
             print("The enemy dropped a....")
-            print(f"{Fore.MAGENTA}{rarity} item - {name}")
+            print(f"{Fore.MAGENTA}{Style.BRIGHT}{rarity} item - {name}")
 
         else:
             print("The enemy dropped a....")
-            print(f"{Fore.CYAN}{rarity} item - {name}")
+            print(f"{Fore.CYAN}{Style.BRIGHT}{rarity} item - {name}")
 
         if assign == "attack":
             gen_char.set_attack(gen_char.get_attack()+value)
@@ -261,10 +264,12 @@ def battle(gen_enemy, gen_char):
     Function to handle battle sequence between Guardian and Enemy
     """
     clear_display()
-    print(f"Its... {Fore.RED}{gen_enemy.get_e_name()}{Fore.WHITE}"
+    print(f"Its... a {Fore.RED}{Style.BRIGHT}"
+          f"{gen_enemy.get_e_name()}{Fore.WHITE}"
           f", and they look ready for a fight!\n")
     print(
-        f"Check out {Fore.RED}{gen_enemy.get_e_name()}'s{Fore.WHITE} stats:\n")
+        f"Check out {Fore.RED}{Style.BRIGHT}{gen_enemy.get_e_name()}"
+        f"'s{Fore.WHITE} stats:\n")
     stats = vars(gen_enemy)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
@@ -274,8 +279,8 @@ def battle(gen_enemy, gen_char):
     while fight:
         print(
             "\nYou have engaged the creature, which attack would you like to"
-            f" use:\n {Fore.GREEN}'C' for 'Close', 'R' for 'Ranged'"
-            f", 'M' for 'Magic' attack?\n")
+            f" use:\n {Fore.GREEN}{Style.BRIGHT}'C' for 'Close', 'R' for"
+            f" 'Ranged', 'M' for 'Magic' attack?\n")
         choice = input("Enter 'C', 'R' or 'M': ").lower().strip(" ")
         while choice != "c" and choice != "r" and choice != "m":
             print(
@@ -298,14 +303,14 @@ def battle(gen_enemy, gen_char):
 
         if strike:
             gen_enemy.set_e_health(gen_enemy.get_e_health() - damage)
-            print(f"You struck the enemy, {Fore.RED}{gen_enemy.get_e_name()}'s"
-                  f" blood gushes....\n")
+            print(f"You struck the enemy, {Fore.RED}{Style.BRIGHT}"
+                  f"{gen_enemy.get_e_name()}'s blood gushes....\n")
             print(
                 f"{gen_enemy.get_e_name()}'s health is now "
                 f"{gen_enemy.get_e_health()}")
 
         else:
-            print("Enemy dodged your attack")
+            print("Enemy dodged your attack\n")
 
         enemy_dead = is_dead(gen_enemy.get_e_health())
 
@@ -330,6 +335,7 @@ def battle(gen_enemy, gen_char):
 
         else:
             fight = False
-            print(gen_enemy.get_e_name(), "has been slain")
+            print(f"{Fore.GREEN}{Style.BRIGHT}{gen_enemy.get_e_name()}, has"
+                  f"been slain")
             loot(gen_char.get_luck(), gen_char)
             return True

@@ -18,7 +18,6 @@ Harpy
 Hydra
 Minotaur
 Cyclops
-Legionary
 Phalanx
 Centurion
 Colossus
