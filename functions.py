@@ -8,6 +8,7 @@ import random
 import math
 import time
 from pprint import pprint
+from getch import pause
 import colorama
 from colorama import Fore, Style
 import ascii_art
@@ -99,8 +100,7 @@ def gen_char():
         magic = 12
         luck = random.randint(0, 10)
 
-    character = Guardian(attack, defense, health, luck, magic, ranged, name)
-    return character
+    return Guardian(attack, defense, health, luck, magic, ranged, name)
 
 
 def gen_enemy():
@@ -148,7 +148,7 @@ def strike_chance(luck):
         return True
 
 
-def enemy_attack(strike_chance, attack_value, name, defence):
+def enemy_attack(enemy_chance, attack_value, name, defence):
     """
     Sets up Enemy attack and uses random to see if successful
     """
@@ -156,7 +156,7 @@ def enemy_attack(strike_chance, attack_value, name, defence):
           f"is about to strike...\n")
     time.sleep(0.9)
     strike = random.randint(0, 10)
-    if strike_chance >= strike:
+    if enemy_chance >= strike:
         print(
             f"{Fore.RED}{Style.BRIGHT}{name} {Style.RESET_ALL}has struck you "
             f"successfully...\n")
@@ -180,7 +180,68 @@ def is_dead(health):
         return False
 
 
-def loot(luck, gen_char):
+def found_loot(char_luck):
+    """
+    Applies found loot to character
+    """
+    loot_list = ["docs/common.txt", "docs/legandary.txt",
+                 "docs/exotic.txt"]
+    listnum = random.randint(0, 2)
+    item_type = loot_list[listnum]
+    file = open(item_type, "r", encoding="utf8")
+    lines = file.readlines()
+
+    item = random.randint(0, len(lines)-1)
+
+    item_line = lines[item]
+    split_item_line = item_line.split(",")
+
+    rarity = split_item_line[0]
+    name = split_item_line[1]
+    value = int(split_item_line[2])
+    assign = split_item_line[3]
+    if rarity == "Exotic":
+        print(f"\nan {Fore.YELLOW}{Style.BRIGHT}{rarity} item - {name}\n")
+
+    elif rarity == "Legendary":
+        print(f"\na {Fore.MAGENTA}{Style.BRIGHT}{rarity} item - {name}\n")
+
+    else:
+        print(f"\na {Fore.BLUE}{Style.BRIGHT}{rarity} item - {name}\n")
+
+    if assign == "attack":
+        char_luck.set_attack(char_luck.get_attack()+value)
+        print("Your new Close Attack stat is...")
+        print(char_luck.get_attack(), "\n")
+
+    elif assign == "ranged":
+        char_luck.set_ranged(char_luck.get_ranged()+value)
+        print("Your new Ranged Attack stat is...")
+        print(char_luck.get_ranged(), "\n")
+
+    elif assign == "defence":
+        char_luck.set_defence(char_luck.get_defence()+value)
+        print("Your new Defence stat is...")
+        print(char_luck.get_defence(), "\n")
+
+    elif assign == "magic":
+        char_luck.set_magic(char_luck.get_magic()+value)
+        print("Your new Magic Attack stat is...")
+        print(char_luck.get_magic(), "\n")
+
+    else:
+        if assign == "luck":
+            char_luck.set_luck(char_luck.get_luck()+value)
+            print("Your new Luck stat is...")
+            print(char_luck.get_luck(), "\n")
+
+        elif assign == "health":
+            char_luck.set_health(char_luck.get_health()+value)
+            print("Your new Health stat is...")
+            print(char_luck.get_health(), "\n")
+
+
+def loot(luck, char_luck):
     """
     Calculates chance of loot dropping from enemy
     """
@@ -205,49 +266,48 @@ def loot(luck, gen_char):
         name = split_item_line[1]
         value = int(split_item_line[2])
         assign = split_item_line[3]
-
         if rarity == "Exotic":
             print("The enemy dropped an....")
-            print(f"{Fore.YELLOW}{Style.BRIGHT}{rarity} item - {name}")
+            print(f"{Fore.YELLOW}{Style.BRIGHT}{rarity} item - {name}\n")
 
         elif rarity == "Legendary":
             print("The enemy dropped a....")
-            print(f"{Fore.MAGENTA}{Style.BRIGHT}{rarity} item - {name}")
+            print(f"{Fore.MAGENTA}{Style.BRIGHT}{rarity} item - {name}\n")
 
         else:
             print("The enemy dropped a....")
-            print(f"{Fore.CYAN}{Style.BRIGHT}{rarity} item - {name}")
+            print(f"{Fore.BLUE}{Style.BRIGHT}{rarity} item - {name}\n")
 
         if assign == "attack":
-            gen_char.set_attack(gen_char.get_attack()+value)
+            char_luck.set_attack(char_luck.get_attack()+value)
             print("Your new Close Attack stat is...")
-            print(gen_char.get_attack())
+            print(char_luck.get_attack(), "\n")
 
         elif assign == "ranged":
-            gen_char.set_ranged(gen_char.get_ranged()+value)
+            char_luck.set_ranged(char_luck.get_ranged()+value)
             print("Your new Ranged Attack stat is...")
-            print(gen_char.get_ranged())
+            print(char_luck.get_ranged(), "\n")
 
         elif assign == "defence":
-            gen_char.set_defence(gen_char.get_defence()+value)
+            char_luck.set_defence(char_luck.get_defence()+value)
             print("Your new Defence stat is...")
-            print(gen_char.get_defence())
+            print(char_luck.get_defence(), "\n")
 
         elif assign == "magic":
-            gen_char.set_magic(gen_char.get_magic()+value)
+            char_luck.set_magic(char_luck.get_magic()+value)
             print("Your new Magic Attack stat is...")
-            print(gen_char.get_magic())
+            print(char_luck.get_magic(), "\n")
 
         else:
             if assign == "luck":
-                gen_char.set_luck(gen_char.get_luck()+value)
+                char_luck.set_luck(char_luck.get_luck()+value)
                 print("Your new Luck stat is...")
-                print(gen_char.get_luck())
+                print(char_luck.get_luck(), "\n")
 
             elif assign == "health":
-                gen_char.set_health(gen_char.get_health()+value)
+                char_luck.set_health(char_luck.get_health()+value)
                 print("Your new Health stat is...")
-                print(gen_char.get_health())
+                print(char_luck.get_health(), "\n")
 
 
 def game_over(enemy_dead):
@@ -258,21 +318,24 @@ def game_over(enemy_dead):
         print("Congratulations Guardian you have slain")
     else:
         print("The foul beast has struck you down Guardian....")
+        print(Fore.RED + Style.BRIGHT + ascii_art.GAME_OVER)
+        pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress "
+              f"any key to return to homescreen")
         adventure.welcome_screen()
 
 
-def battle(gen_enemy, gen_char):
+def battle(enemy, guardian):
     """
     Function to handle battle sequence between Guardian and Enemy
     """
     clear_display()
-    print(f"Its... a {Fore.RED}{Style.BRIGHT}"
-          f"{gen_enemy.get_e_name()}{Fore.WHITE}"
+    print(f"{Fore.RED}{Style.BRIGHT}"
+          f"{enemy.get_e_name()}{Fore.WHITE}"
           f", and they look ready for a fight!\n")
     print(
-        f"Check out the {Fore.RED}{Style.BRIGHT}{gen_enemy.get_e_name()}"
+        f"Check out the {Fore.RED}{Style.BRIGHT}{enemy.get_e_name()}"
         f"'s{Fore.WHITE} stats:\n")
-    stats = vars(gen_enemy)
+    stats = vars(enemy)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
 
@@ -291,54 +354,55 @@ def battle(gen_enemy, gen_char):
             choice = input("Enter 'C', 'R' or 'M': ").lower().strip(" ")
 
         if choice == "c":
-            damage = gen_char.get_attack()
+            damage = guardian.get_attack()
 
         elif choice == "r":
-            damage = gen_char.get_ranged()
+            damage = guardian.get_ranged()
 
         else:
-            damage = gen_char.get_magic()
+            damage = guardian.get_magic()
         clear_display()
         typing_print("You wind up for the attack!!...\n")
         time.sleep(0.8)
-        strike = strike_chance(gen_char.get_luck())
+        strike = strike_chance(guardian.get_luck())
 
         if strike:
-            gen_enemy.set_e_health(gen_enemy.get_e_health() - damage)
+            enemy.set_e_health(enemy.get_e_health() - damage)
             print(f"\nYou struck the enemy, {Fore.RED}{Style.BRIGHT}"
-                  f"{gen_enemy.get_e_name()}'s blood gushes....\n")
+                  f"{enemy.get_e_name()}'s blood gushes....\n")
             print(
-                f"{Fore.RED}{Style.BRIGHT}{gen_enemy.get_e_name()}'s "
-                f"{Style.RESET_ALL}health is now {gen_enemy.get_e_health()}")
+                f"{Fore.RED}{Style.BRIGHT}{enemy.get_e_name()}'s "
+                f"{Style.RESET_ALL}health is now {enemy.get_e_health()}")
 
         else:
             print("Enemy dodged your attack\n")
 
-        enemy_dead = is_dead(gen_enemy.get_e_health())
+        enemy_dead = is_dead(enemy.get_e_health())
 
         if not enemy_dead:
-            gen_char.set_health(gen_char.get_health() - enemy_attack
-                                (gen_enemy.get_e_chance(),
-                                gen_enemy.get_e_attack(),
-                                gen_enemy.get_e_name(),
-                                gen_char.get_defence()))
+            guardian.set_health(guardian.get_health() - enemy_attack
+                                (enemy.get_e_chance(),
+                                enemy.get_e_attack(),
+                                enemy.get_e_name(),
+                                guardian.get_defence()))
 
-            guardian_dead = is_dead(gen_char.get_health())
+            guardian_dead = is_dead(guardian.get_health())
 
             if guardian_dead:
-                print(f'You died {gen_char.get_name()}')
+                clear_display()
+                print(f'You died {guardian.get_name()}\n')
                 game_over(enemy_dead)
                 fight = False
                 return False
 
             else:
-                print(f"{gen_char.get_name()}'s remaining health is...."
-                      f"{gen_char.get_health()}")
+                print(f"{guardian.get_name()}'s remaining health is...."
+                      f"{guardian.get_health()}")
 
         else:
             fight = False
-            print(f"{Fore.GREEN}{Style.BRIGHT}{gen_enemy.get_e_name()}, has"
-                  f" been slain")
-            gen_char.set_health(100)
-            loot(gen_char.get_luck(), gen_char)
+            print(f"\n{Fore.RED}{Style.BRIGHT}{enemy.get_e_name()}"
+                  f"{Style.RESET_ALL}, has been slain!\n")
+            guardian.set_health(100)
+            loot(guardian.get_luck(), guardian)
             return True

@@ -13,7 +13,7 @@ import ascii_art
 import story
 colorama.init(autoreset=True)
 
-character = ''
+CHARACTER = ''
 
 
 def welcome_screen():
@@ -126,13 +126,13 @@ def act_1():
     paragraph and loads the first choice.
     '''
     functions.clear_display()
-    global character
-    character = functions.gen_char()
+    global CHARACTER
+    CHARACTER = functions.gen_char()
     functions.clear_display()
     print(Fore.GREEN + Style.BRIGHT + ascii_art.STATS)
     print(f"{Fore.GREEN}{Style.BRIGHT}Your Guardians Stats")
     print(f"{Fore.GREEN}{Style.BRIGHT}--------------------")
-    stats = vars(character)
+    stats = vars(CHARACTER)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
@@ -166,6 +166,15 @@ def village():
     """
     Function for Village narrative
     """
+    functions.clear_display()
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.VILLAGE)
+    functions.typing_print(story.VILLAGE)
+    path_choice('\nOpen the box or Continue on the village path? '
+                'Enter O or C:\n',
+                'o',
+                'c',
+                'Invalid input - Enter O or C: ',
+                encounter_2, village)
 
 
 def encounter_1():
@@ -181,15 +190,31 @@ def encounter_1():
     functions.clear_display()
     functions.typing_print('What was that? the outpost is now lit up but\n'
                            'there is something hiding in the shadows you\n'
-                           ' approach and you see that\n')
+                           'approach and you see that its a ...... \n')
     enemy = functions.gen_enemy()
-    functions.battle(enemy, character)
-    stats = vars(character)
+    time.sleep(1)
+    functions.battle(enemy, CHARACTER)
+    stats = vars(CHARACTER)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
-    new_enemy = functions.gen_enemy()
-    functions.battle(new_enemy, character)
+    jungle()
+
+
+def encounter_2():
+    """
+    Function for 1st Enemy encounter
+    """
+    functions.clear_display()
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.ENCOUNTER_2)
+    functions.typing_print(story.ENCOUNTER_2)
+    time.sleep(.75)
+    functions.found_loot(CHARACTER)
+    print("Wait there's another item in there its....")
+    time.sleep(.75)
+    functions.found_loot(CHARACTER)
+    print("Thats a great haul I'm glad I stopped to open the box.\n")
+    stats = vars(CHARACTER)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
@@ -197,7 +222,7 @@ def encounter_1():
 
 
 def main():
+    """
+    Starts Adventure
+    """
     welcome_screen()
-
-
-main()
