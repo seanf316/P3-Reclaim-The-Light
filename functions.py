@@ -11,6 +11,7 @@ from pprint import pprint
 import colorama
 from colorama import Fore, Style
 import ascii_art
+import adventure
 from classes.guardian import Guardian
 from classes.enemy import Enemy, Boss
 colorama.init(autoreset=True)
@@ -252,6 +253,7 @@ def game_over(enemy_dead):
         print("Congratulations Guardian you have slain")
     else:
         print("The foul beast has struck you down Guardian....")
+        adventure.welcome_screen()
 
 
 def battle(gen_enemy, gen_char):
@@ -317,6 +319,8 @@ def battle(gen_enemy, gen_char):
             guardian_dead = is_dead(gen_char.get_health())
 
             if guardian_dead:
+                print(f'You died {gen_char.get_name()}')
+                game_over(enemy_dead)
                 fight = False
                 return False
 

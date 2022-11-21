@@ -2,14 +2,6 @@
 Reclaim The Light Adventure Game
 """
 
-from getch import pause
-import colorama
-from colorama import Fore, Style
-import ascii_art
-import functions
-import adventure
-
-colorama.init(autoreset=True)
 
 
 def welcome_screen():
@@ -33,13 +25,12 @@ def welcome_screen():
             adventure.act_1()
         elif choices == "m":
             menu = False
-            functions.clear_display()
             mission_log()
         elif choices == "a":
             menu = False
             about()
         else:
-            print("That was an invalid input, please enter S,M,I")
+            print("That was an invalid input, please enter S,M,I\n")
 
 
 def mission_log():
