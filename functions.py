@@ -158,7 +158,8 @@ def enemy_attack(strike_chance, attack_value, name, defence):
     strike = random.randint(0, 10)
     if strike_chance >= strike:
         print(
-            f"{Fore.RED}{Style.BRIGHT}{name} has struck you successfully...\n")
+            f"{Fore.RED}{Style.BRIGHT}{name} {Style.RESET_ALL}has struck you "
+            f"successfully...\n")
         loss = attack_value - defence
         print(f"You feel the warm heat of {Fore.RED}{Style.BRIGHT}blood... "
               f"you stagger back losing {loss} health.\n")
@@ -269,7 +270,7 @@ def battle(gen_enemy, gen_char):
           f"{gen_enemy.get_e_name()}{Fore.WHITE}"
           f", and they look ready for a fight!\n")
     print(
-        f"Check out {Fore.RED}{Style.BRIGHT}{gen_enemy.get_e_name()}"
+        f"Check out the {Fore.RED}{Style.BRIGHT}{gen_enemy.get_e_name()}"
         f"'s{Fore.WHITE} stats:\n")
     stats = vars(gen_enemy)
     for key, value in stats.items():

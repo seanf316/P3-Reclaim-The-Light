@@ -179,11 +179,19 @@ def encounter_1():
     print(Fore.RED + Style.BRIGHT + ascii_art.ENCOUNTER_1)
     time.sleep(1)
     functions.clear_display()
-    functions.typing_print('What was that? the outpost is now lit up but there'
-                           'is something hiding in the shadows you approach'
-                           ' and you see that\n')
+    functions.typing_print('What was that? the outpost is now lit up but\n'
+                           'there is something hiding in the shadows you\n'
+                           ' approach and you see that\n')
     enemy = functions.gen_enemy()
     functions.battle(enemy, character)
+    stats = vars(character)
+    for key, value in stats.items():
+        pprint(f"{key.capitalize()} : {value}")
+    pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
+    new_enemy = functions.gen_enemy()
+    functions.battle(new_enemy, character)
+    for key, value in stats.items():
+        pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
     jungle()
 
