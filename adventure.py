@@ -109,7 +109,7 @@ def path_choice(choice, select_1, select_2,
     Function used throughout the game to
     direct the story depending on your choice.
     '''
-    choice = input(Fore.GREEN + choice).lower().strip(" ")
+    choice = input(Fore.GREEN + Style.BRIGHT + choice).lower().strip(" ")
     if choice == select_1:
         function_1()
     elif choice == select_2:

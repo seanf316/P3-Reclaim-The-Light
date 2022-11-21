@@ -330,12 +330,12 @@ def battle(gen_enemy, gen_char):
                 return False
 
             else:
-                print("Guardian's remaining health is....",
-                      gen_char.get_health())
+                print(f"{gen_char.get_name}'s remaining health is...."
+                      f"{gen_char.get_health()}")
 
         else:
             fight = False
             print(f"{Fore.GREEN}{Style.BRIGHT}{gen_enemy.get_e_name()}, has"
-                  f"been slain")
+                  f" been slain")
             loot(gen_char.get_luck(), gen_char)
             return True
