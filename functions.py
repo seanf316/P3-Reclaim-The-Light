@@ -152,15 +152,16 @@ def enemy_attack(strike_chance, attack_value, name, defence):
     """
     Sets up Enemy attack and uses random to see if successful
     """
-    print(name, "is about to strike...\n")
+    print(f"{Fore.RED}{Style.BRIGHT}{name} {Style.RESET_ALL}"
+          f"is about to strike...\n")
     time.sleep(0.9)
     strike = random.randint(0, 10)
     if strike_chance >= strike:
         print(
             f"{Fore.RED}{Style.BRIGHT}{name} has struck you successfully...\n")
         loss = attack_value - defence
-        print(f"You feel the warm heat of {Fore.RED}{Style.BRIGHT}blood...\n")
-        print("you stagger back losing", loss, "health.\n")
+        print(f"You feel the warm heat of {Fore.RED}{Style.BRIGHT}blood... "
+              f"you stagger back losing {loss} health.\n")
         return math.ceil(loss)
 
     else:
@@ -303,11 +304,11 @@ def battle(gen_enemy, gen_char):
 
         if strike:
             gen_enemy.set_e_health(gen_enemy.get_e_health() - damage)
-            print(f"You struck the enemy, {Fore.RED}{Style.BRIGHT}"
+            print(f"\nYou struck the enemy, {Fore.RED}{Style.BRIGHT}"
                   f"{gen_enemy.get_e_name()}'s blood gushes....\n")
             print(
-                f"{gen_enemy.get_e_name()}'s health is now "
-                f"{gen_enemy.get_e_health()}")
+                f"{Fore.RED}{Style.BRIGHT}{gen_enemy.get_e_name()}'s "
+                f"{Style.RESET_ALL}health is now {gen_enemy.get_e_health()}")
 
         else:
             print("Enemy dodged your attack\n")
@@ -330,12 +331,13 @@ def battle(gen_enemy, gen_char):
                 return False
 
             else:
-                print(f"{gen_char.get_name}'s remaining health is...."
+                print(f"{gen_char.get_name()}'s remaining health is...."
                       f"{gen_char.get_health()}")
 
         else:
             fight = False
             print(f"{Fore.GREEN}{Style.BRIGHT}{gen_enemy.get_e_name()}, has"
                   f" been slain")
+            gen_char.set_health(100)
             loot(gen_char.get_luck(), gen_char)
             return True

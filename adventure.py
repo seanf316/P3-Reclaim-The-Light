@@ -177,9 +177,9 @@ def encounter_1():
     time.sleep(.75)
     functions.clear_display()
     print(Fore.RED + Style.BRIGHT + ascii_art.ENCOUNTER_1)
-    time.sleep(.75)
+    time.sleep(1)
     functions.clear_display()
-    functions.typing_print('What was that? the outpost is now little but there'
+    functions.typing_print('What was that? the outpost is now lit up but there'
                            'is something hiding in the shadows you approach'
                            ' and you see that\n')
     enemy = functions.gen_enemy()
