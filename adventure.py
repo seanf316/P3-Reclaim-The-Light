@@ -174,7 +174,7 @@ def village():
                 'o',
                 'c',
                 'Invalid input - Enter O or C: ',
-                encounter_2, village)
+                encounter_2, jungle)
 
 
 def encounter_1():
@@ -218,7 +218,7 @@ def encounter_2():
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
-    jungle()
+    village()
 
 
 def main():

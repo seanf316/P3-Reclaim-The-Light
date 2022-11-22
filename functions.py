@@ -170,16 +170,6 @@ def enemy_attack(enemy_chance, attack_value, name, defence):
         return 0
 
 
-def is_dead(health):
-    """
-    Checks if Guardian or Enemy has died
-    """
-    if health < 1:
-        return True
-    else:
-        return False
-
-
 def found_loot(char_luck):
     """
     Applies found loot to character
@@ -310,12 +300,22 @@ def loot(luck, char_luck):
                 print(char_luck.get_health(), "\n")
 
 
+def is_dead(health):
+    """
+    Checks if Guardian or Enemy has died
+    """
+    if health < 1:
+        return True
+    else:
+        return False
+
+
 def game_over(enemy_dead):
     """
     Checks for Game Over
     """
     if enemy_dead:
-        print("Congratulations Guardian you have slain")
+        return True
     else:
         print("The foul beast has struck you down Guardian....")
         print(Fore.RED + Style.BRIGHT + ascii_art.GAME_OVER)
@@ -329,6 +329,7 @@ def battle(enemy, guardian):
     Function to handle battle sequence between Guardian and Enemy
     """
     clear_display()
+    print(Fore.RED + Style.BRIGHT + ascii_art.ENEMY)
     print(f"{Fore.RED}{Style.BRIGHT}"
           f"{enemy.get_e_name()}{Fore.WHITE}"
           f", and they look ready for a fight!\n")
