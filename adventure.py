@@ -159,7 +159,27 @@ def jungle():
                 'i',
                 'c',
                 'Invalid input - Enter I or C: ',
-                encounter_1, village)
+                encounter_1, jungle_continue)
+
+
+def jungle_continue():
+    """
+    Function for Jungle Continue Choice Narrative
+    """
+    functions.clear_display()
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.CAMP)
+    functions.typing_print(story.JUNGLE_1)
+    time.sleep(1)
+    functions.sleep()
+    functions.clear_display()
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.BANG)
+    functions.typing_print(story.JUNGLE_2)
+    path_choice('\nFight or Surrender? '
+                'Enter F or S:\n',
+                'f',
+                's',
+                'Invalid input - Enter F or S: ',
+                encounter_3, surrender)
 
 
 def village():
@@ -191,6 +211,7 @@ def encounter_1():
     functions.typing_print('What was that? the outpost is now lit up but\n'
                            'there is something hiding in the shadows you\n'
                            'approach and you see that its a ...... \n')
+    time.sleep(1)
     enemy = functions.gen_enemy()
     time.sleep(1)
     functions.battle(enemy, CHARACTER)
@@ -219,6 +240,42 @@ def encounter_2():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
     village()
+
+
+def encounter_3():
+    """
+    Function for 1st Enemy encounter
+    """
+    functions.clear_display()
+    functions.typing_print(story.ENCOUNTER_3)
+    enemy = functions.gen_enemy()
+    time.sleep(1)
+    functions.battle(enemy, CHARACTER)
+    pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
+    print("\nThats one down 2 to go, the next enemy steps up its a...")
+    time.sleep(1)
+    enemy1 = functions.gen_enemy()
+    functions.battle(enemy1, CHARACTER)
+    stats = vars(CHARACTER)
+    for key, value in stats.items():
+        pprint(f"{key.capitalize()} : {value}")
+    pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
+    jungle()
+
+
+def surrender():
+    """
+    Function to run the surrender narrative
+    """
+    functions.clear_display()
+    functions.typing_print(story.SURRENDER)
+    time.sleep(1)
+    print(Fore.RED + Style.BRIGHT + ascii_art.GAME_OVER)
+    print(f'{CHARACTER.get_name()} you have been slain, the light crystal'
+          f' is lost....')
+    pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress "
+          f"any key to return to homescreen")
+    welcome_screen()
 
 
 def main():

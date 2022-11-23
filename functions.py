@@ -41,6 +41,18 @@ def clear_display():
         command = 'cls'
     os.system(command)
 
+
+def sleep():
+    """
+    Function for sleep sequence
+    """
+    for zzz in ascii_art.z_list:
+        for asleep in range(2):
+            clear_display()
+            print(Fore.GREEN + Style.BRIGHT + zzz + zzz + zzz)
+            time.sleep(.5)
+    return asleep
+
 # Game Functions
 ##################################################
 
@@ -78,7 +90,7 @@ def gen_char():
         attack = 10
         defense = 10
         health = 100
-        luck = random.randint(0, 10)
+        luck = random.randint(1, 10)
         ranged = 5
         magic = 5
 
@@ -89,7 +101,7 @@ def gen_char():
         health = 100
         ranged = 12
         magic = 5
-        luck = random.randint(0, 10)
+        luck = random.randint(1, 10)
 
     else:
         typing_print("\nGenerating Guardian.....\n")
@@ -98,7 +110,7 @@ def gen_char():
         health = 100
         ranged = 8
         magic = 12
-        luck = random.randint(0, 10)
+        luck = random.randint(1, 10)
 
     return Guardian(attack, defense, health, luck, magic, ranged, name)
 
@@ -141,7 +153,7 @@ def strike_chance(luck):
     """
     hit = random.randint(0, 4)
     if luck < hit:
-        print("You missed!")
+        print("\nYou missed!")
         return False
 
     else:
@@ -371,9 +383,6 @@ def battle(enemy, guardian):
             enemy.set_e_health(enemy.get_e_health() - damage)
             print(f"\nYou struck the enemy, {Fore.RED}{Style.BRIGHT}"
                   f"{enemy.get_e_name()}'s blood gushes....\n")
-            print(
-                f"{Fore.RED}{Style.BRIGHT}{enemy.get_e_name()}'s "
-                f"{Style.RESET_ALL}health is now {enemy.get_e_health()}")
 
         else:
             print("Enemy dodged your attack\n")
@@ -381,6 +390,9 @@ def battle(enemy, guardian):
         enemy_dead = is_dead(enemy.get_e_health())
 
         if not enemy_dead:
+            print(
+                f"{Fore.RED}{Style.BRIGHT}{enemy.get_e_name()}'s "
+                f"{Style.RESET_ALL}health is now {enemy.get_e_health()}")
             guardian.set_health(guardian.get_health() - enemy_attack
                                 (enemy.get_e_chance(),
                                 enemy.get_e_attack(),
@@ -402,7 +414,7 @@ def battle(enemy, guardian):
 
         else:
             fight = False
-            print(f"\n{Fore.RED}{Style.BRIGHT}{enemy.get_e_name()}"
+            print(f"{Fore.RED}{Style.BRIGHT}{enemy.get_e_name()}"
                   f"{Style.RESET_ALL}, has been slain!\n")
             guardian.set_health(100)
             loot(guardian.get_luck(), guardian)
