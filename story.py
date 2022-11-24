@@ -74,6 +74,17 @@ going on here, you hand finally meets the switch you pull the
 switch and light fills the.........
 '''
 
+ENCOUNTER_1A = '''
+You take a step back to survey the room the creature lays slain
+on the ground you see a sign saying service tunnel ahead. This
+might lead the way to the mines but I need to move quickly there
+may be more enemies ahead. You make your way down the corridor
+quietly, you see the service tunnel door ahead. As you approach
+your universal tranlator goes off "They guardian is mine....",
+out of the shadows comes 2 creatures armed to the teeth. Will
+you (F)ight or (S)urrender?
+'''
+
 ENCOUNTER_2 = '''
 You take the box off the truck, it is locked but that is not going
 to stop you. You draw your sword and with one clean swoop you knock

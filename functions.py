@@ -65,8 +65,8 @@ def gen_char():
     print(Fore.GREEN + Style.BRIGHT + ascii_art.WELCOME)
     name = input("What is your name Guardian: ").capitalize()
     while len(name.strip(" ")) == 0:
-        print("I appreciate that you may want to keep your identity a "
-              "secret but we require a name to join our ranks....")
+        print("I appreciate that you may want to keep your identity a secret\n"
+              "but we require a name to join our ranks....\n")
         name = input("What is your name Guardian: ")
     print(
         f'\nWell {name} what kind of Guardian are you?\n'
@@ -125,7 +125,7 @@ def gen_enemy():
     file.close()
 
     health = random.randint(50, 100)
-    attack = random.randint(10, 20)
+    attack = random.randint(15, 20)
     chance = random.randint(1, 10)
 
     return Enemy(health, attack, chance, enemy)
@@ -139,10 +139,10 @@ def gen_boss():
     lines = file.readlines()
     boss = lines[random.randint(0, len(lines)-1)][:-1]
     file.close()
-    health = random.randint(200, 250)
-    attack = random.randint(30, 50)
+    health = random.randint(140, 160)
+    attack = random.randint(20, 40)
     chance = random.randint(1, 8)
-    super_move = random.randint(100, 200)
+    super_move = random.randint(50, 60)
 
     return Boss(health, attack, chance, boss, super_move)
 
@@ -151,7 +151,7 @@ def strike_chance(luck):
     """
     Sets up Guardian attack and uses random to see if successful
     """
-    hit = random.randint(0, 4)
+    hit = random.randint(1, 4)
     if luck < hit:
         print("\nYou missed!")
         return False
@@ -167,7 +167,7 @@ def enemy_attack(enemy_chance, attack_value, name, defence):
     print(f"{Fore.RED}{Style.BRIGHT}{name} {Style.RESET_ALL}"
           f"is about to strike...\n")
     time.sleep(0.9)
-    strike = random.randint(0, 10)
+    strike = random.randint(1, 10)
     if enemy_chance >= strike:
         print(
             f"{Fore.RED}{Style.BRIGHT}{name} {Style.RESET_ALL}has struck you "
@@ -343,11 +343,11 @@ def battle(enemy, guardian):
     clear_display()
     print(Fore.RED + Style.BRIGHT + ascii_art.ENEMY)
     print(f"{Fore.RED}{Style.BRIGHT}"
-          f"{enemy.get_e_name()}{Fore.WHITE}"
+          f"{enemy.get_e_name()}{Style.RESET_ALL}"
           f", and they look ready for a fight!\n")
     print(
         f"Check out the {Fore.RED}{Style.BRIGHT}{enemy.get_e_name()}"
-        f"'s{Fore.WHITE} stats:\n")
+        f"'s{Style.RESET_ALL} stats:\n")
     stats = vars(enemy)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
@@ -416,6 +416,7 @@ def battle(enemy, guardian):
             fight = False
             print(f"{Fore.RED}{Style.BRIGHT}{enemy.get_e_name()}"
                   f"{Style.RESET_ALL}, has been slain!\n")
-            guardian.set_health(100)
+            if guardian.get_health() < 100:
+                guardian.set_health(100)
             loot(guardian.get_luck(), guardian)
             return True

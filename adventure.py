@@ -171,6 +171,7 @@ def jungle_continue():
     functions.typing_print(story.JUNGLE_1)
     time.sleep(1)
     functions.sleep()
+    time.sleep(1)
     functions.clear_display()
     print(Fore.GREEN + Style.BRIGHT + ascii_art.BANG)
     functions.typing_print(story.JUNGLE_2)
@@ -202,8 +203,9 @@ def encounter_1():
     Function for 1st Enemy encounter
     """
     functions.clear_display()
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.OUTPOST)
     functions.typing_print(story.ENCOUNTER_1)
-    time.sleep(.75)
+    time.sleep(1)
     functions.clear_display()
     print(Fore.RED + Style.BRIGHT + ascii_art.ENCOUNTER_1)
     time.sleep(1)
@@ -219,7 +221,33 @@ def encounter_1():
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
-    jungle()
+    functions.clear_display()
+    functions.typing_print(story.ENCOUNTER_1A)
+    decison = input(f'\n{Fore.GREEN}{Style.BRIGHT}Enter "F" or '
+                    f'S: ').lower().strip(" ")
+    while decison != 'f' and decison != 's':
+        print('Invalid input - Please Enter "F" or "S"\n')
+        input(f'\n{Fore.GREEN}{Style.BRIGHT}Enter "F" or '
+              f'S: ').lower().strip(" ")
+    if decison == 'f':
+        functions.typing_print(
+            'One of the creatures moves forward thirsting for blood,\n'
+            'you see that its.....\n')
+        enemy_1 = functions.gen_enemy()
+        functions.battle(enemy_1, CHARACTER)
+        pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
+        functions.typing_print(
+            'One down one to go the second creature speaks...\n'
+            'You will pay with your life guardian, it leaps into view\n'
+            'its.....')
+        enemy_2 = functions.gen_enemy()
+        functions.battle(enemy_2, CHARACTER)
+        functions.typing_print(
+            '\nThats that done now its time to get to the mines....\n')
+        pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
+    elif decison == "s":
+        surrender()
+    mines()
 
 
 def encounter_2():
@@ -229,12 +257,13 @@ def encounter_2():
     functions.clear_display()
     print(Fore.GREEN + Style.BRIGHT + ascii_art.ENCOUNTER_2)
     functions.typing_print(story.ENCOUNTER_2)
-    time.sleep(.75)
+    time.sleep(1.2)
     functions.found_loot(CHARACTER)
-    print("Wait there's another item in there its....")
-    time.sleep(.75)
+    functions.typing_print("Wait there's another item in there its....\n")
+    time.sleep(1.2)
     functions.found_loot(CHARACTER)
-    print("Thats a great haul I'm glad I stopped to open the box.\n")
+    functions.typing_print("Thats a great haul I'm glad I stopped to open the "
+                           "box.\n\n")
     stats = vars(CHARACTER)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
@@ -252,15 +281,22 @@ def encounter_3():
     time.sleep(1)
     functions.battle(enemy, CHARACTER)
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
-    print("\nThats one down 2 to go, the next enemy steps up its a...")
+    functions.typing_print("\nThats one down 2 to go, the next enemy steps up "
+                           "its a...")
     time.sleep(1)
     enemy1 = functions.gen_enemy()
     functions.battle(enemy1, CHARACTER)
+    functions.typing_print("\nYou stare at the 3rd enemy ready to fight...\n"
+                           "they look in your eyes and retreat in fear, as\n"
+                           "they run they drop an item its......\n\n")
+    functions.found_loot(CHARACTER)
     stats = vars(CHARACTER)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
-    jungle()
+    functions.typing_print("That was tough but I need to keep moving and get"
+                           "to the mines....")
+    mines()
 
 
 def surrender():
@@ -276,6 +312,10 @@ def surrender():
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress "
           f"any key to return to homescreen")
     welcome_screen()
+
+
+def mines():
+    pass
 
 
 def main():
