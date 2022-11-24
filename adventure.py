@@ -195,7 +195,24 @@ def village():
                 'o',
                 'c',
                 'Invalid input - Enter O or C: ',
-                encounter_2, jungle)
+                encounter_2, weapons_depot)
+
+
+def weapons_depot():
+    functions.clear_display()
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.WEAPON)
+    functions.typing_print(story.WEPAON_DEPOT)
+    time.sleep(.7)
+    functions.clear_display()
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.ENCOUNTER_2)
+    functions.typing_print('You check the first chest and......\n')
+    time.sleep(.7)
+    functions.typing_print('\n...nothing unfortunately, lets move on.\n')
+    time.sleep(.7)
+    functions.typing_print('\nYou check the second chest and......\n')
+    time.sleep(.7)
+    functions.typing_print('\nBingo its......\n')
+    functions.found_loot(CHARACTER)
 
 
 def encounter_1():

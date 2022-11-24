@@ -66,6 +66,18 @@ find a locked box, do you (O)pen the box or (C)ontinue on the
 village path.....
 '''
 
+WEPAON_DEPOT = '''
+You continue you on your path silently as to not alert any enemies,
+there are so many buildings that the enemies could be hiding out in.
+You see and old school in ruins it pains you to think kids used to play
+happily here before the war, that feeling you keep with you it drives
+you to succeed at this mission. You need to get off the road and rest
+for bit up ahead you see what looks to be an old wepaon depot that 
+might be as good a spot as any. You enter the depot and scout the area 
+it looks abandoned you feel your body relax. You see there are 4 weapon
+chests scattered around the room they might be worth checking....
+'''
+
 ENCOUNTER_1 = '''
 You enter the outpost its so dark you can't see your hands in
 front of you, you scramble around searching for the power switch

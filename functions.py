@@ -182,7 +182,7 @@ def enemy_attack(enemy_chance, attack_value, name, defence):
         return 0
 
 
-def found_loot(char_luck):
+def found_loot(char):
     """
     Applies found loot to character
     """
@@ -212,35 +212,35 @@ def found_loot(char_luck):
         print(f"\na {Fore.BLUE}{Style.BRIGHT}{rarity} item - {name}\n")
 
     if assign == "attack":
-        char_luck.set_attack(char_luck.get_attack()+value)
+        char.set_attack(char.get_attack()+value)
         print("Your new Close Attack stat is...")
-        print(char_luck.get_attack(), "\n")
+        print(char.get_attack(), "\n")
 
     elif assign == "ranged":
-        char_luck.set_ranged(char_luck.get_ranged()+value)
+        char.set_ranged(char.get_ranged()+value)
         print("Your new Ranged Attack stat is...")
-        print(char_luck.get_ranged(), "\n")
+        print(char.get_ranged(), "\n")
 
     elif assign == "defence":
-        char_luck.set_defence(char_luck.get_defence()+value)
+        char.set_defence(char.get_defence()+value)
         print("Your new Defence stat is...")
-        print(char_luck.get_defence(), "\n")
+        print(char.get_defence(), "\n")
 
     elif assign == "magic":
-        char_luck.set_magic(char_luck.get_magic()+value)
+        char.set_magic(char.get_magic()+value)
         print("Your new Magic Attack stat is...")
-        print(char_luck.get_magic(), "\n")
+        print(char.get_magic(), "\n")
 
     else:
         if assign == "luck":
-            char_luck.set_luck(char_luck.get_luck()+value)
+            char.set_luck(char.get_luck()+value)
             print("Your new Luck stat is...")
-            print(char_luck.get_luck(), "\n")
+            print(char.get_luck(), "\n")
 
         elif assign == "health":
-            char_luck.set_health(char_luck.get_health()+value)
+            char.set_health(char.get_health()+value)
             print("Your new Health stat is...")
-            print(char_luck.get_health(), "\n")
+            print(char.get_health(), "\n")
 
 
 def loot(luck, char_luck):
