@@ -202,7 +202,7 @@ def weapons_depot():
     functions.clear_display()
     print(Fore.GREEN + Style.BRIGHT + ascii_art.WEAPON)
     functions.typing_print(story.WEPAON_DEPOT)
-    time.sleep(.7)
+    pause(f"{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
     functions.clear_display()
     print(Fore.GREEN + Style.BRIGHT + ascii_art.ENCOUNTER_2)
     functions.typing_print('You check the first chest and......\n')
