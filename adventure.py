@@ -336,10 +336,16 @@ def encounter_3():
 def encounter_4():
     functions.clear_display()
     functions.typing_print(story.ENCOUNTER_4)
+    stats = vars(CHARACTER)
+    for key, value in stats.items():
+        pprint(f"{key.capitalize()} : {value}")
     time.sleep(1)
     enemy = functions.gen_enemy()
     time.sleep(1)
     functions.battle(enemy, CHARACTER)
+    stats = vars(CHARACTER)
+    for key, value in stats.items():
+        pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
     functions.clear_display()
     functions.typing_print('You took the first one out with ease, the second\n'
@@ -348,6 +354,9 @@ def encounter_4():
     enemy1 = functions.gen_enemy()
     time.sleep(1)
     functions.battle(enemy1, CHARACTER)
+    stats = vars(CHARACTER)
+    for key, value in stats.items():
+        pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
     functions.clear_display()
     functions.typing_print('Thats two down, the creatures rage at the sight\n'
@@ -358,6 +367,9 @@ def encounter_4():
     enemy2 = functions.gen_enemy()
     time.sleep(1)
     functions.battle(enemy2, CHARACTER)
+    stats = vars(CHARACTER)
+    for key, value in stats.items():
+        pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
     functions.clear_display()
     functions.typing_print('Thats three down, the last creature shouts\n'
@@ -366,6 +378,9 @@ def encounter_4():
     enemy3 = functions.gen_enemy()
     time.sleep(1)
     functions.battle(enemy3, CHARACTER)
+    stats = vars(CHARACTER)
+    for key, value in stats.items():
+        pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
     functions.clear_display()
     functions.typing_print(story.ENCOUNTER_4A)

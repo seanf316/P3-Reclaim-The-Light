@@ -8,9 +8,10 @@ class Enemy:
     Creates the Enemy object
     *"e" refers to Enemy
     """
-    def __init__(self, e_health, e_attack, e_chance, e_name):
+    def __init__(self, e_health, e_attack, e_defence, e_chance, e_name):
         self.health = e_health
         self.attack = e_attack
+        self.defence = e_defence
         self.chance = e_chance
         self.name = e_name
 
@@ -25,6 +26,12 @@ class Enemy:
         Gets Enemy current close attack stat
         """
         return self.attack
+
+    def get_e_defence(self):
+        """
+        Gets Enemy current close attack stat
+        """
+        return self.defence
 
     def get_e_chance(self):
         """
@@ -50,6 +57,12 @@ class Enemy:
         """
         self.attack = new_attack
 
+    def set_e_defence(self, new_defence):
+        """
+        Gets Enemy current close attack stat
+        """
+        self.defence = new_defence
+
     def set_e_chance(self, new_chance):
         """
         Gets Enemy current magic attack stat
@@ -67,9 +80,9 @@ class Boss(Enemy):
     """
     Subclass of enemy for Bosses
     """
-    def __init__(self, e_health, e_attack, e_chance, e_name,
+    def __init__(self, e_health, e_attack, e_defence, e_chance, e_name,
                  e_super):
-        super().__init__(e_health, e_attack, e_chance, e_name)
+        super().__init__(e_health, e_attack, e_defence, e_chance, e_name)
         self.super = e_super
 
     def get_boss_super(self):

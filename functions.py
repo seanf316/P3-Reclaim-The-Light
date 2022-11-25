@@ -28,7 +28,7 @@ def typing_print(text):
     for character in text:
         sys.stdout.write(character)
         sys.stdout.flush()
-        time.sleep(0.05)
+        time.sleep(0.04)
 
 
 def clear_display():
@@ -88,16 +88,16 @@ def gen_char():
     if user_choice == "w":
         typing_print("\nGenerating Guardian.....")
         attack = 10
-        defense = 10
+        defense = 8
         health = 100
         luck = random.randint(1, 10)
-        ranged = 5
-        magic = 5
+        ranged = 6
+        magic = 6
 
     elif user_choice == "a":
         typing_print("\nGenerating Guardian.....")
-        attack = 5
-        defense = 8
+        attack = 6
+        defense = 7
         health = 100
         ranged = 12
         magic = 5
@@ -127,8 +127,9 @@ def gen_enemy():
     health = random.randint(50, 100)
     attack = random.randint(15, 20)
     chance = random.randint(1, 10)
+    defence = random.randint(1, 4)
 
-    return Enemy(health, attack, chance, enemy)
+    return Enemy(health, attack, defence, chance, enemy)
 
 
 def gen_boss():
@@ -141,10 +142,11 @@ def gen_boss():
     file.close()
     health = random.randint(140, 160)
     attack = random.randint(20, 40)
+    defence = random.randint(1, 6)
     chance = random.randint(1, 8)
     super_move = random.randint(50, 60)
 
-    return Boss(health, attack, chance, boss, super_move)
+    return Boss(health, attack, defence, chance, boss, super_move)
 
 
 def strike_chance(luck):
@@ -367,13 +369,13 @@ def battle(enemy, guardian):
             choice = input("Enter 'C', 'R' or 'M': ").lower().strip(" ")
 
         if choice == "c":
-            damage = guardian.get_attack()
+            damage = guardian.get_attack() - enemy.get_e_defence()
 
         elif choice == "r":
-            damage = guardian.get_ranged()
+            damage = guardian.get_ranged() - enemy.get_e_defence()
 
         else:
-            damage = guardian.get_magic()
+            damage = guardian.get_magic() - enemy.get_e_defence()
         clear_display()
         typing_print("You wind up for the attack!!...\n")
         time.sleep(0.8)
