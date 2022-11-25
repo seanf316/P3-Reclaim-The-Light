@@ -35,7 +35,7 @@ def welcome_screen():
         if choices == "s":
             menu = False
             functions.clear_display()
-            act_1()
+            nessus()
         elif choices == "m":
             menu = False
             functions.clear_display()
@@ -120,7 +120,7 @@ def path_choice(choice, select_1, select_2,
     print(Style.RESET_ALL)
 
 
-def act_1():
+def nessus():
     '''
     Asks you to begin the game, prints the first
     paragraph and loads the first choice.
@@ -213,6 +213,23 @@ def weapons_depot():
     time.sleep(.7)
     functions.typing_print('\nBingo its......\n')
     functions.found_loot(CHARACTER)
+    functions.typing_print('\nYou check the third chest and......\n')
+    time.sleep(.7)
+    functions.typing_print('\nNice one its......\n')
+    functions.found_loot(CHARACTER)
+    time.sleep(.7)
+    functions.clear_display()
+    functions.typing_print(story.WEPAON_DEPOT_1)
+    time.sleep(.7)
+    print(Fore.RED + Style.BRIGHT + ascii_art.ENCOUNTER_1)
+    time.sleep(.7)
+    functions.typing_print(story.WEPAON_DEPOT_2)
+    path_choice('\nFight or Surrender? '
+                'Enter F or S:\n',
+                'f',
+                's',
+                'Invalid input - Enter F or S: ',
+                encounter_4, surrender)
 
 
 def encounter_1():
@@ -313,6 +330,55 @@ def encounter_3():
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
     functions.typing_print("That was tough but I need to keep moving and get"
                            "to the mines....")
+    mines()
+
+
+def encounter_4():
+    functions.clear_display()
+    functions.typing_print(story.ENCOUNTER_4)
+    time.sleep(1)
+    enemy = functions.gen_enemy()
+    time.sleep(1)
+    functions.battle(enemy, CHARACTER)
+    pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
+    functions.clear_display()
+    functions.typing_print('You took the first one out with ease, the second\n'
+                           'enemy steps up its a.....')
+    time.sleep(1)
+    enemy1 = functions.gen_enemy()
+    time.sleep(1)
+    functions.battle(enemy1, CHARACTER)
+    pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
+    functions.clear_display()
+    functions.typing_print('Thats two down, the creatures rage at the sight\n'
+                           'of their fallen comrades. "You will pay for\n'
+                           'their deaths Guardian", one of the enemies\n'
+                           'jumps at you its a.....')
+    time.sleep(1)
+    enemy2 = functions.gen_enemy()
+    time.sleep(1)
+    functions.battle(enemy2, CHARACTER)
+    pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
+    functions.clear_display()
+    functions.typing_print('Thats three down, the last creature shouts\n'
+                           '"For the Darkness" and leaps at you its a....')
+    time.sleep(1)
+    enemy3 = functions.gen_enemy()
+    time.sleep(1)
+    functions.battle(enemy3, CHARACTER)
+    pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
+    functions.clear_display()
+    functions.typing_print(story.ENCOUNTER_4A)
+    time.sleep(.5)
+    functions.sleep()
+    time.sleep(.5)
+    functions.sleep()
+    time.sleep(.5)
+    functions.sleep()
+    functions.clear_display()
+    functions.typing_print('You wake up feeling much better lets get to the '
+                           'mines.....\n')
+    pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
     mines()
 
 

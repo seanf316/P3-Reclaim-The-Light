@@ -151,7 +151,7 @@ def strike_chance(luck):
     """
     Sets up Guardian attack and uses random to see if successful
     """
-    hit = random.randint(1, 4)
+    hit = random.randint(1, 6)
     if luck < hit:
         print("\nYou missed!")
         return False
@@ -392,7 +392,7 @@ def battle(enemy, guardian):
         if not enemy_dead:
             print(
                 f"{Fore.RED}{Style.BRIGHT}{enemy.get_e_name()}'s "
-                f"{Style.RESET_ALL}health is now {enemy.get_e_health()}")
+                f"{Style.RESET_ALL}health is {enemy.get_e_health()}")
             guardian.set_health(guardian.get_health() - enemy_attack
                                 (enemy.get_e_chance(),
                                 enemy.get_e_attack(),

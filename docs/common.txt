@@ -1,4 +1,4 @@
-Common,Worn Sword,,attack,
+Common,Worn Sword,2,attack,
 Common,Rusted Daggar,2,attack,
 Common,Bloodied Cleaver,2,attack,
 Common,Battered Bow,2,ranged,

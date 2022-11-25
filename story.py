@@ -72,10 +72,24 @@ there are so many buildings that the enemies could be hiding out in.
 You see and old school in ruins it pains you to think kids used to play
 happily here before the war, that feeling you keep with you it drives
 you to succeed at this mission. You need to get off the road and rest
-for bit up ahead you see what looks to be an old wepaon depot that 
-might be as good a spot as any. You enter the depot and scout the area 
+for bit up ahead you see what looks to be an old wepaon depot that
+might be as good a spot as any. You enter the depot and scout the area
 it looks abandoned you feel your body relax. You see there are 4 weapon
 chests scattered around the room they might be worth checking....
+'''
+
+WEPAON_DEPOT_1 = '''
+You approach the 4th chest near the back of your room hoping for more loot,
+you try to open it but it seems to be stuck. You take your sword and place
+it between the hinge, you push the sword upwards and......
+'''
+
+WEPAON_DEPOT_2 = '''
+You are knocked back blinded by a flash of light, your ears are ringing,
+it must have been a make shift alarm using an old flash bang grenade. Your
+universal translator starts clicking in and out but suddenly you hear the
+words "Come out guardian and face us".... Theres no way out Guardian you have
+two choices will you (F)ight or (S)urrender?
 '''
 
 ENCOUNTER_1 = '''
@@ -107,4 +121,20 @@ be in there as the box is at least a century old, inside you find....
 ENCOUNTER_3 = '''
 You gather your self and grip you shield and sword, its time......
 You push forward and you see 3 enemies the first steps up its a......
+'''
+
+ENCOUNTER_4 = '''
+You get back to your feet and steady yourself, you tell yourself this
+is for the people at home. You grip your shield tight and ready your
+sword you walk out of the depot and see 4 enemies surrounding you,
+without fear you point your sword at them - "Whos first?", the first
+enemy steps up its a......
+'''
+
+ENCOUNTER_4A = '''
+That was some battle, you took out 4 of the creatures but it took a
+toll on your body you need to rest and recuperate. You drag their
+bodys into the depot to avoid further detection. You board up the
+entrance with the shelving units in the depot and lay down, your eyes
+shut almost instantly......
 '''
