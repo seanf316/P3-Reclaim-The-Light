@@ -144,7 +144,7 @@ def nessus():
                 'j',
                 'v',
                 'Invalid input - Enter J or V: ',
-                jungle, village)
+                encounter_5, village)
 
 
 def jungle():
@@ -221,7 +221,7 @@ def weapons_depot():
     functions.clear_display()
     functions.typing_print(story.WEPAON_DEPOT_1)
     time.sleep(.7)
-    print(Fore.RED + Style.BRIGHT + ascii_art.ENCOUNTER_1)
+    print(Fore.RED + Style.BRIGHT + ascii_art.BOOM)
     time.sleep(.7)
     functions.typing_print(story.WEPAON_DEPOT_2)
     path_choice('\nFight or Surrender? '
@@ -241,12 +241,15 @@ def encounter_1():
     functions.typing_print(story.ENCOUNTER_1)
     time.sleep(1)
     functions.clear_display()
-    print(Fore.RED + Style.BRIGHT + ascii_art.ENCOUNTER_1)
+    print(Fore.RED + Style.BRIGHT + ascii_art.BOOM)
     time.sleep(1)
     functions.clear_display()
-    functions.typing_print('What was that? the outpost is now lit up but\n'
-                           'there is something hiding in the shadows you\n'
-                           'approach and you see that its a ...... \n')
+    functions.typing_print('What was that? the outpost is now lit up there\n'
+                           'is a table snapped in half laying on the ground\n'
+                           'beside you. It was thrown by something or\n'
+                           'someone, you look around the room and you see\n'
+                           'something hiding in the shadows you approach and\n'
+                           'you see that its a ......\n')
     time.sleep(1)
     enemy = functions.gen_enemy()
     time.sleep(1)
@@ -258,18 +261,19 @@ def encounter_1():
     functions.clear_display()
     functions.typing_print(story.ENCOUNTER_1A)
     decison = input(f'\n{Fore.GREEN}{Style.BRIGHT}Enter "F" or '
-                    f'S: ').lower().strip(" ")
+                    f'S: {Style.RESET_ALL}\n').lower().strip(" ")
     while decison != 'f' and decison != 's':
         print('Invalid input - Please Enter "F" or "S"\n')
         input(f'\n{Fore.GREEN}{Style.BRIGHT}Enter "F" or '
-              f'S: ').lower().strip(" ")
+              f'S: {Style.RESET_ALL}\n').lower().strip(" ")
     if decison == 'f':
         functions.typing_print(
-            'One of the creatures moves forward thirsting for blood,\n'
+            '\nOne of the creatures moves forward thirsting for blood,\n'
             'you see that its.....\n')
         enemy_1 = functions.gen_enemy()
         functions.battle(enemy_1, CHARACTER)
         pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
+        functions.clear_display()
         functions.typing_print(
             'One down one to go the second creature speaks...\n'
             'You will pay with your life guardian, it leaps into view\n'
@@ -286,7 +290,7 @@ def encounter_1():
 
 def encounter_2():
     """
-    Function for 1st Enemy encounter
+    Function for free loot encounter
     """
     functions.clear_display()
     print(Fore.GREEN + Style.BRIGHT + ascii_art.ENCOUNTER_2)
@@ -307,7 +311,7 @@ def encounter_2():
 
 def encounter_3():
     """
-    Function for 1st Enemy encounter
+    Function for 2nd Enemy encounter
     """
     functions.clear_display()
     functions.typing_print(story.ENCOUNTER_3)
@@ -334,6 +338,9 @@ def encounter_3():
 
 
 def encounter_4():
+    """
+    Function for 3rd Enemy encounter
+    """
     functions.clear_display()
     functions.typing_print(story.ENCOUNTER_4)
     stats = vars(CHARACTER)
@@ -413,6 +420,95 @@ def surrender():
 
 
 def mines():
+    """
+    Function to run the Mines narrative
+    """
+    functions.clear_display()
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.MINES)
+    functions.typing_print(story.MINES_1)
+    enemy = functions.gen_enemy()
+    time.sleep(1)
+    functions.battle(enemy, CHARACTER)
+    stats = vars(CHARACTER)
+    for key, value in stats.items():
+        pprint(f"{key.capitalize()} : {value}")
+    pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
+    functions.clear_display()
+    functions.typing_print(
+        '"You will pay for his death Guardian", the 2nd enemy leaps forward\n'
+        'its a......\n')
+    enemy1 = functions.gen_enemy()
+    time.sleep(1)
+    functions.battle(enemy1, CHARACTER)
+    stats = vars(CHARACTER)
+    for key, value in stats.items():
+        pprint(f"{key.capitalize()} : {value}")
+    pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
+    functions.clear_display()
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.BRIDGE)
+    functions.typing_print(story.MINES_2)
+    path_choice('\nFight or Surrender? '
+                'Enter F or S:\n',
+                'f',
+                's',
+                'Invalid input - Enter F or S: ',
+                encounter_5, surrender)
+
+
+def encounter_5():
+    """
+    Function for 4th Enemy encounter
+    """
+    functions.clear_display()
+    functions.typing_print(
+        f'{Style.RESET_ALL}You dont hesitate, you raise your sword and\n'
+        f'charge at the first enemy in front of you it is a.....\n')
+    enemy = functions.gen_enemy()
+    time.sleep(1)
+    functions.battle(enemy, CHARACTER)
+    stats = vars(CHARACTER)
+    for key, value in stats.items():
+        pprint(f"{key.capitalize()} : {value}")
+    pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
+    functions.clear_display()
+    functions.typing_print(
+        'You shake the blood from your sword and shout "Whos Next"\n'
+        'one of the enemies behind you comes forward its a....\n')
+    enemy1 = functions.gen_enemy()
+    time.sleep(1)
+    functions.battle(enemy1, CHARACTER)
+    stats = vars(CHARACTER)
+    for key, value in stats.items():
+        pprint(f"{key.capitalize()} : {value}")
+    pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
+    functions.clear_display()
+    functions.typing_print(
+        'Another enemy leaps on your back in a rage, you throw the\n'
+        'enemy off and see that its a....\n')
+    enemy2 = functions.gen_enemy()
+    time.sleep(1)
+    functions.battle(enemy2, CHARACTER)
+    stats = vars(CHARACTER)
+    for key, value in stats.items():
+        pprint(f"{key.capitalize()} : {value}")
+    functions.clear_display()
+    functions.typing_print(
+        'You stare at the last enemy in your way and point your sword\n'
+        '"Your next". The enemy raises their weapons and rush towards you\n'
+        'its a.....')
+    enemy3 = functions.gen_enemy()
+    time.sleep(1)
+    functions.battle(enemy3, CHARACTER)
+    stats = vars(CHARACTER)
+    for key, value in stats.items():
+        pprint(f"{key.capitalize()} : {value}")
+    functions.typing_print(
+        'Thats them all slain time to reclaim the light.....')
+    pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
+    reclaim()
+
+
+def reclaim():
     pass
 
 

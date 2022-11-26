@@ -103,10 +103,10 @@ switch and light fills the.........
 ENCOUNTER_1A = '''
 You take a step back to survey the room the creature lays slain
 on the ground you see a sign saying service tunnel ahead. This
-might lead the way to the mines but I need to move quickly there
+might lead the way to the mines but you need to move quickly there
 may be more enemies ahead. You make your way down the corridor
 quietly, you see the service tunnel door ahead. As you approach
-your universal tranlator goes off "They guardian is mine....",
+your universal tranlator goes off "The guardian is mine....",
 out of the shadows comes 2 creatures armed to the teeth. Will
 you (F)ight or (S)urrender?
 '''
@@ -137,4 +137,26 @@ toll on your body you need to rest and recuperate. You drag their
 bodys into the depot to avoid further detection. You board up the
 entrance with the shelving units in the depot and lay down, your eyes
 shut almost instantly......
+'''
+
+MINES_1 = '''
+You have arrived at the entrance to the mines, two creatures of Darkness
+stand guard you need to get pass them to recover the crystal, you have no
+other choice you need to take them out. You grip your sword and approach
+the creatures, they immediately draw their weapons "You made a mistake
+coming here Guardian....", the first enemy steps forward its a....
+'''
+
+MINES_2 = '''
+Good job Guardian you slayed those foul beasts. You enter the Mines and
+are blown away by the sheer size of it there is a slender bridge in front
+of you that leads to a large opening in the mine you feel your getting
+close to the crystal. You make your way across the bridge you are more
+determined then ever suddenly you universal translator outputs "Silly,
+wretched Guardian you dare enter our mine..." in front of you 2 creatures
+appear they came from the side of the bridge they must have been waiting
+for you. "We have you now Guardian" says another voice you turn around
+to find 2 more creatures slowly approaching weapons in hand... You are
+surrounded Guardian will you (F)ight your way out or (S)urrender and hope
+for the best?
 '''

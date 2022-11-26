@@ -125,7 +125,7 @@ def gen_enemy():
     file.close()
 
     health = random.randint(50, 100)
-    attack = random.randint(15, 20)
+    attack = random.randint(14, 20)
     chance = random.randint(1, 10)
     defence = random.randint(1, 4)
 
@@ -140,11 +140,11 @@ def gen_boss():
     lines = file.readlines()
     boss = lines[random.randint(0, len(lines)-1)][:-1]
     file.close()
-    health = random.randint(140, 160)
-    attack = random.randint(20, 40)
+    health = random.randint(110, 130)
+    attack = random.randint(15, 30)
     defence = random.randint(1, 6)
     chance = random.randint(1, 8)
-    super_move = random.randint(50, 60)
+    super_move = random.randint(35, 45)
 
     return Boss(health, attack, defence, chance, boss, super_move)
 
