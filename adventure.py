@@ -13,7 +13,7 @@ import ascii_art
 import story
 colorama.init(autoreset=True)
 
-CHARACTER = ''
+character = ''
 
 
 def welcome_screen():
@@ -45,7 +45,7 @@ def welcome_screen():
             functions.clear_display()
             about()
         else:
-            print("That was an invalid input, please enter S,M,I\n")
+            print("That was an invalid input, please enter S,M or A\n")
 
 
 def mission_log():
@@ -55,13 +55,13 @@ def mission_log():
     functions.clear_display()
     print(Fore.GREEN + Style.BRIGHT + ascii_art.MISSION_LOG)
     functions.typing_print(
-        "\nThe last city was attacked by the colition of Darkness.\n"
+        "\nThe last city was attacked by the coalition of Darkness.\n"
         "Their aim was to acquire the last city's light crystal the source\n"
         "of sustainable power that has allowed us to survive for so long.\n"
         "Our intel tells us that the crystal was brought to Nessus and we\n"
-        "need you to go there and retreive it. Beware Nessus is very hostile\n"
-        "with alot of dangerous foe lerking in the shadows, be careful\n"
-        "Guardian the city wont last without the light crstal.\n"
+        "need you to go there and retrieve it. Beware Nessus is very hostile\n"
+        "with a lot of dangerous foes lurking in the shadows, be careful\n"
+        "Guardian the city won't last without the light crystal.\n"
         "\nThe people of the last city are counting on you Guardian!\n"
         )
     pause(f"{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue....")
@@ -78,10 +78,10 @@ def about():
     print(f"{Fore.GREEN}{Style.BRIGHT}Welcome to Reclaim The Light")
     print(
         "\nReclaim The Light is a text adventure game where the outcome\n"
-        "of the story is changed based off the user's choices throughout.\n"
+        "of the story is changed based on the user's choices throughout.\n"
         "\n1. You will need to input a name for your Guardian\n"
         "2. You will need to select a Guardian class.\n"
-        "3. Make choices and have fun!.\n"
+        "3. Make choices and have fun!\n"
     )
     print('\033[1;4m' + 'Guardian Classes' + '\033[0m')
     print(
@@ -91,7 +91,7 @@ def about():
         'or magic attack.\n'
         f'\n{Fore.GREEN}{Style.BRIGHT}Assassin:\n{Style.RESET_ALL}'
         'As the name suggests they are the stealthiest of the 3 classes,\n'
-        'they havea high ranged attack & a good defense stat but fall away\n'
+        'they have a high ranged attack & a good defense stat but fall away\n'
         'when it comes to close attack or magic attack.\n'
         f'\n{Fore.GREEN}{Style.BRIGHT}Mage:\n{Style.RESET_ALL}'
         'A Mage likes to stick to their magic attacks when fighting foes but\n'
@@ -109,10 +109,11 @@ def path_choice(choice, select_1, select_2,
     Function used throughout the game to
     direct the story depending on your choice.
     '''
-    choice = input(Fore.GREEN + Style.BRIGHT + choice).lower().strip(" ")
-    if choice == select_1:
+    choice2 = input(Fore.GREEN + Style.BRIGHT + choice +
+                    Style.RESET_ALL).lower().strip(" ")
+    if choice2 == select_1:
         function_1()
-    elif choice == select_2:
+    elif choice2 == select_2:
         function_2()
     else:
         print(error)
@@ -126,13 +127,13 @@ def nessus():
     paragraph and loads the first choice.
     '''
     functions.clear_display()
-    global CHARACTER
-    CHARACTER = functions.gen_char()
+    global character
+    character = functions.gen_char()
     functions.clear_display()
     print(Fore.GREEN + Style.BRIGHT + ascii_art.STATS)
     print(f"{Fore.GREEN}{Style.BRIGHT}Your Guardians Stats")
     print(f"{Fore.GREEN}{Style.BRIGHT}--------------------")
-    stats = vars(CHARACTER)
+    stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
@@ -144,7 +145,7 @@ def nessus():
                 'j',
                 'v',
                 'Invalid input - Enter J or V: ',
-                encounter_5, village)
+                jungle, village)
 
 
 def jungle():
@@ -154,7 +155,7 @@ def jungle():
     functions.clear_display()
     print(Fore.GREEN + Style.BRIGHT + ascii_art.JUNGLE)
     functions.typing_print(story.JUNGLE)
-    path_choice('\nInvestigate outpost or Continue on the jungle path? '
+    path_choice('\nInvestigate the Outpost or Continue on the jungle path? '
                 'Enter I or C:\n',
                 'i',
                 'c',
@@ -199,9 +200,12 @@ def village():
 
 
 def weapons_depot():
+    """
+    Function for Weapon Depot Narrative
+    """
     functions.clear_display()
     print(Fore.GREEN + Style.BRIGHT + ascii_art.WEAPON)
-    functions.typing_print(story.WEPAON_DEPOT)
+    functions.typing_print(story.WEAPON_DEPOT)
     pause(f"{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
     functions.clear_display()
     print(Fore.GREEN + Style.BRIGHT + ascii_art.ENCOUNTER_2)
@@ -212,18 +216,18 @@ def weapons_depot():
     functions.typing_print('\nYou check the second chest and......\n')
     time.sleep(.7)
     functions.typing_print('\nBingo its......\n')
-    functions.found_loot(CHARACTER)
+    functions.found_loot(character)
     functions.typing_print('\nYou check the third chest and......\n')
     time.sleep(.7)
     functions.typing_print('\nNice one its......\n')
-    functions.found_loot(CHARACTER)
+    functions.found_loot(character)
     time.sleep(.7)
     functions.clear_display()
-    functions.typing_print(story.WEPAON_DEPOT_1)
+    functions.typing_print(story.WEAPON_DEPOT_1)
     time.sleep(.7)
     print(Fore.RED + Style.BRIGHT + ascii_art.BOOM)
     time.sleep(.7)
-    functions.typing_print(story.WEPAON_DEPOT_2)
+    functions.typing_print(story.WEAPON_DEPOT_2)
     path_choice('\nFight or Surrender? '
                 'Enter F or S:\n',
                 'f',
@@ -253,8 +257,8 @@ def encounter_1():
     time.sleep(1)
     enemy = functions.gen_enemy()
     time.sleep(1)
-    functions.battle(enemy, CHARACTER)
-    stats = vars(CHARACTER)
+    functions.battle(enemy, character)
+    stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
@@ -271,7 +275,7 @@ def encounter_1():
             '\nOne of the creatures moves forward thirsting for blood,\n'
             'you see that its.....\n')
         enemy_1 = functions.gen_enemy()
-        functions.battle(enemy_1, CHARACTER)
+        functions.battle(enemy_1, character)
         pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
         functions.clear_display()
         functions.typing_print(
@@ -279,9 +283,9 @@ def encounter_1():
             'You will pay with your life guardian, it leaps into view\n'
             'its.....')
         enemy_2 = functions.gen_enemy()
-        functions.battle(enemy_2, CHARACTER)
+        functions.battle(enemy_2, character)
         functions.typing_print(
-            '\nThats that done now its time to get to the mines....\n')
+            "\nThat's that done now its time to get to the mines....\n")
         pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
     elif decison == "s":
         surrender()
@@ -296,17 +300,18 @@ def encounter_2():
     print(Fore.GREEN + Style.BRIGHT + ascii_art.ENCOUNTER_2)
     functions.typing_print(story.ENCOUNTER_2)
     time.sleep(1.2)
-    functions.found_loot(CHARACTER)
+    functions.found_loot(character)
     functions.typing_print("Wait there's another item in there its....\n")
     time.sleep(1.2)
-    functions.found_loot(CHARACTER)
+    functions.found_loot(character)
     functions.typing_print("Thats a great haul I'm glad I stopped to open the "
                            "box.\n\n")
-    stats = vars(CHARACTER)
+    print("Your new stats are:\n")
+    stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
-    village()
+    weapons_depot()
 
 
 def encounter_3():
@@ -317,18 +322,18 @@ def encounter_3():
     functions.typing_print(story.ENCOUNTER_3)
     enemy = functions.gen_enemy()
     time.sleep(1)
-    functions.battle(enemy, CHARACTER)
+    functions.battle(enemy, character)
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
     functions.typing_print("\nThats one down 2 to go, the next enemy steps up "
                            "its a...")
     time.sleep(1)
     enemy1 = functions.gen_enemy()
-    functions.battle(enemy1, CHARACTER)
+    functions.battle(enemy1, character)
     functions.typing_print("\nYou stare at the 3rd enemy ready to fight...\n"
                            "they look in your eyes and retreat in fear, as\n"
                            "they run they drop an item its......\n\n")
-    functions.found_loot(CHARACTER)
-    stats = vars(CHARACTER)
+    functions.found_loot(character)
+    stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
@@ -343,14 +348,12 @@ def encounter_4():
     """
     functions.clear_display()
     functions.typing_print(story.ENCOUNTER_4)
-    stats = vars(CHARACTER)
-    for key, value in stats.items():
-        pprint(f"{key.capitalize()} : {value}")
     time.sleep(1)
     enemy = functions.gen_enemy()
     time.sleep(1)
-    functions.battle(enemy, CHARACTER)
-    stats = vars(CHARACTER)
+    functions.battle(enemy, character)
+    print("Your new stats are:\n")
+    stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
@@ -360,8 +363,8 @@ def encounter_4():
     time.sleep(1)
     enemy1 = functions.gen_enemy()
     time.sleep(1)
-    functions.battle(enemy1, CHARACTER)
-    stats = vars(CHARACTER)
+    functions.battle(enemy1, character)
+    stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
@@ -373,8 +376,8 @@ def encounter_4():
     time.sleep(1)
     enemy2 = functions.gen_enemy()
     time.sleep(1)
-    functions.battle(enemy2, CHARACTER)
-    stats = vars(CHARACTER)
+    functions.battle(enemy2, character)
+    stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
@@ -384,8 +387,8 @@ def encounter_4():
     time.sleep(1)
     enemy3 = functions.gen_enemy()
     time.sleep(1)
-    functions.battle(enemy3, CHARACTER)
-    stats = vars(CHARACTER)
+    functions.battle(enemy3, character)
+    stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
@@ -396,7 +399,6 @@ def encounter_4():
     time.sleep(.5)
     functions.sleep()
     time.sleep(.5)
-    functions.sleep()
     functions.clear_display()
     functions.typing_print('You wake up feeling much better lets get to the '
                            'mines.....\n')
@@ -412,7 +414,7 @@ def surrender():
     functions.typing_print(story.SURRENDER)
     time.sleep(1)
     print(Fore.RED + Style.BRIGHT + ascii_art.GAME_OVER)
-    print(f'{CHARACTER.get_name()} you have been slain, the light crystal'
+    print(f'{character.get_name()} you have been slain, the light crystal'
           f' is lost....')
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress "
           f"any key to return to homescreen")
@@ -428,8 +430,8 @@ def mines():
     functions.typing_print(story.MINES_1)
     enemy = functions.gen_enemy()
     time.sleep(1)
-    functions.battle(enemy, CHARACTER)
-    stats = vars(CHARACTER)
+    functions.battle(enemy, character)
+    stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
@@ -439,8 +441,8 @@ def mines():
         'its a......\n')
     enemy1 = functions.gen_enemy()
     time.sleep(1)
-    functions.battle(enemy1, CHARACTER)
-    stats = vars(CHARACTER)
+    functions.battle(enemy1, character)
+    stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
@@ -461,12 +463,12 @@ def encounter_5():
     """
     functions.clear_display()
     functions.typing_print(
-        f'{Style.RESET_ALL}You dont hesitate, you raise your sword and\n'
-        f'charge at the first enemy in front of you it is a.....\n')
+        'You dont hesitate, you raise your sword and\n'
+        'charge at the first enemy in front of you it is a.....\n')
     enemy = functions.gen_enemy()
     time.sleep(1)
-    functions.battle(enemy, CHARACTER)
-    stats = vars(CHARACTER)
+    functions.battle(enemy, character)
+    stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
@@ -476,8 +478,8 @@ def encounter_5():
         'one of the enemies behind you comes forward its a....\n')
     enemy1 = functions.gen_enemy()
     time.sleep(1)
-    functions.battle(enemy1, CHARACTER)
-    stats = vars(CHARACTER)
+    functions.battle(enemy1, character)
+    stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
@@ -487,19 +489,19 @@ def encounter_5():
         'enemy off and see that its a....\n')
     enemy2 = functions.gen_enemy()
     time.sleep(1)
-    functions.battle(enemy2, CHARACTER)
-    stats = vars(CHARACTER)
+    functions.battle(enemy2, character)
+    stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     functions.clear_display()
     functions.typing_print(
         'You stare at the last enemy in your way and point your sword\n'
-        '"Your next". The enemy raises their weapons and rush towards you\n'
+        '"Your next". The enemy raises their weapon and rushes towards you\n'
         'its a.....')
     enemy3 = functions.gen_enemy()
     time.sleep(1)
-    functions.battle(enemy3, CHARACTER)
-    stats = vars(CHARACTER)
+    functions.battle(enemy3, character)
+    stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     functions.typing_print(
@@ -509,7 +511,37 @@ def encounter_5():
 
 
 def reclaim():
-    pass
+    """
+    Function for Reclaim Narrative
+    """
+    functions.clear_display()
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.LIGHT)
+    functions.typing_print(story.RECLAIM)
+    time.sleep(1)
+    functions.clear_display()
+    functions.typing_print(story.RECLAIM_1)
+    time.sleep(1)
+    print(Fore.RED + Style.BRIGHT + ascii_art.BOSS)
+    functions.typing_print(story.RECLAIM_2)
+    time.sleep(1)
+    functions.clear_display()
+    boss = functions.gen_boss()
+    functions.battle(boss, character)
+    pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
+    functions.clear_display()
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.RECLAIM)
+    time.sleep(1)
+    functions.clear_display()
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.RECLAIM_1)
+    time.sleep(1)
+    functions.clear_display()
+    print(Fore.GREEN + Style.BRIGHT + ascii_art.THANKS)
+    functions.typing_print(
+        f'Thank you for playing {Fore.GREEN}{Style.BRIGHT}'
+        f'{character.get_name()}, I hope you enjoyed your adventure.')
+    pause(
+        f'\n{Fore.CYAN}{Style.BRIGHT}\n'
+        f'Press any key to return to the homescreen...')
 
 
 def main():

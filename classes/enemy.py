@@ -74,25 +74,3 @@ class Enemy:
         Gets Enemy current defense stat
         """
         self.name = new_enemy_name
-
-
-class Boss(Enemy):
-    """
-    Subclass of enemy for Bosses
-    """
-    def __init__(self, e_health, e_attack, e_defence, e_chance, e_name,
-                 e_super):
-        super().__init__(e_health, e_attack, e_defence, e_chance, e_name)
-        self.super = e_super
-
-    def get_boss_super(self):
-        """
-        Gets Boss super move stat
-        """
-        return self.super
-
-    def set_boss_super(self, new_boss_super):
-        """
-        Gets Boss super move stat
-        """
-        self.super = new_boss_super

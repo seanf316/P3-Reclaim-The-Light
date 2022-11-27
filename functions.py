@@ -14,7 +14,7 @@ from colorama import Fore, Style
 import ascii_art
 import adventure
 from classes.guardian import Guardian
-from classes.enemy import Enemy, Boss
+from classes.enemy import Enemy
 colorama.init(autoreset=True)
 
 # Utility Functions
@@ -90,7 +90,7 @@ def gen_char():
         attack = 10
         defense = 8
         health = 100
-        luck = random.randint(1, 10)
+        luck = random.randint(4, 6)
         ranged = 6
         magic = 6
 
@@ -101,7 +101,7 @@ def gen_char():
         health = 100
         ranged = 12
         magic = 5
-        luck = random.randint(1, 10)
+        luck = random.randint(4, 6)
 
     else:
         typing_print("\nGenerating Guardian.....\n")
@@ -110,7 +110,7 @@ def gen_char():
         health = 100
         ranged = 8
         magic = 12
-        luck = random.randint(1, 10)
+        luck = random.randint(4, 6)
 
     return Guardian(attack, defense, health, luck, magic, ranged, name)
 
@@ -127,7 +127,7 @@ def gen_enemy():
     health = random.randint(50, 100)
     attack = random.randint(14, 20)
     chance = random.randint(1, 10)
-    defence = random.randint(1, 4)
+    defence = random.randint(1, 5)
 
     return Enemy(health, attack, defence, chance, enemy)
 
@@ -144,9 +144,8 @@ def gen_boss():
     attack = random.randint(15, 30)
     defence = random.randint(1, 6)
     chance = random.randint(1, 8)
-    super_move = random.randint(35, 45)
 
-    return Boss(health, attack, defence, chance, boss, super_move)
+    return Enemy(health, attack, defence, chance, boss)
 
 
 def strike_chance(luck):
@@ -225,6 +224,8 @@ def found_loot(char):
 
     elif assign == "defence":
         char.set_defence(char.get_defence()+value)
+        if char.get_defence() > 13:
+            char.set_defence(13)
         print("Your new Defence stat is...")
         print(char.get_defence(), "\n")
 
@@ -294,6 +295,8 @@ def loot(luck, char_luck):
 
         elif assign == "defence":
             char_luck.set_defence(char_luck.get_defence()+value)
+            if char_luck.get_defence() > 13:
+                char_luck.set_defence(13)
             print("Your new Defence stat is...")
             print(char_luck.get_defence(), "\n")
 
@@ -334,7 +337,7 @@ def game_over(enemy_dead):
         print("The foul beast has struck you down Guardian....")
         print(Fore.RED + Style.BRIGHT + ascii_art.GAME_OVER)
         pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress "
-              f"any key to return to homescreen")
+              f"any key to return to the homescreen")
         adventure.welcome_screen()
 
 
