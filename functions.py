@@ -140,8 +140,8 @@ def gen_boss():
     lines = file.readlines()
     boss = lines[random.randint(0, len(lines)-1)][:-1]
     file.close()
-    health = random.randint(110, 130)
-    attack = random.randint(15, 30)
+    health = random.randint(100, 120)
+    attack = random.randint(15, 25)
     defence = random.randint(1, 6)
     chance = random.randint(1, 8)
 

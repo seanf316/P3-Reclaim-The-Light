@@ -536,9 +536,10 @@ def reclaim():
     time.sleep(1)
     functions.clear_display()
     print(Fore.GREEN + Style.BRIGHT + ascii_art.THANKS)
-    functions.typing_print(
-        f'Thank you for playing {Fore.GREEN}{Style.BRIGHT}'
-        f'{character.get_name()}, I hope you enjoyed your adventure.')
+    print(
+        f'Thank you for playing '
+        f'{Fore.GREEN}{Style.BRIGHT}{character.get_name()}{Style.RESET_ALL},'
+        f' I hope you enjoyed your adventure.')
     pause(
         f'\n{Fore.CYAN}{Style.BRIGHT}\n'
         f'Press any key to return to the homescreen...')
