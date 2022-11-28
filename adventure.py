@@ -257,6 +257,7 @@ def encounter_1():
     enemy = functions.gen_enemy()
     time.sleep(1)
     functions.battle(enemy, character)
+    print("Your new stats are:\n")
     stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
@@ -334,6 +335,7 @@ def encounter_3():
                            "they look in your eyes and retreat in fear, as\n"
                            "they run they drop an item its......\n\n")
     functions.found_loot(character)
+    print("Your new stats are:\n")
     stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
@@ -365,6 +367,7 @@ def encounter_4():
     enemy1 = functions.gen_enemy()
     time.sleep(1)
     functions.battle(enemy1, character)
+    print("Your new stats are:\n")
     stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
@@ -378,6 +381,7 @@ def encounter_4():
     enemy2 = functions.gen_enemy()
     time.sleep(1)
     functions.battle(enemy2, character)
+    print("Your new stats are:\n")
     stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
@@ -389,6 +393,7 @@ def encounter_4():
     enemy3 = functions.gen_enemy()
     time.sleep(1)
     functions.battle(enemy3, character)
+    print("Your new stats are:\n")
     stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
@@ -414,6 +419,7 @@ def surrender():
     functions.clear_display()
     functions.typing_print(story.SURRENDER)
     time.sleep(1)
+    functions.clear_display()
     print(Fore.RED + Style.BRIGHT + ascii_art.GAME_OVER)
     print(f'{character.get_name()} you have been slain, the light crystal'
           f' is lost....')
@@ -432,6 +438,7 @@ def mines():
     enemy = functions.gen_enemy()
     time.sleep(1)
     functions.battle(enemy, character)
+    print("Your new stats are:\n")
     stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
@@ -443,6 +450,7 @@ def mines():
     enemy1 = functions.gen_enemy()
     time.sleep(1)
     functions.battle(enemy1, character)
+    print("Your new stats are:\n")
     stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
@@ -469,6 +477,7 @@ def encounter_5():
     enemy = functions.gen_enemy()
     time.sleep(1)
     functions.battle(enemy, character)
+    print("Your new stats are:\n")
     stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
@@ -480,6 +489,7 @@ def encounter_5():
     enemy1 = functions.gen_enemy()
     time.sleep(1)
     functions.battle(enemy1, character)
+    print("Your new stats are:\n")
     stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
@@ -491,6 +501,7 @@ def encounter_5():
     enemy2 = functions.gen_enemy()
     time.sleep(1)
     functions.battle(enemy2, character)
+    print("Your new stats are:\n")
     stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
@@ -502,6 +513,7 @@ def encounter_5():
     enemy3 = functions.gen_enemy()
     time.sleep(1)
     functions.battle(enemy3, character)
+    print("Your new stats are:\n")
     stats = vars(character)
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
