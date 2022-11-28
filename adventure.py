@@ -248,12 +248,11 @@ def encounter_1():
     print(Fore.RED + Style.BRIGHT + ascii_art.BOOM)
     time.sleep(1)
     functions.clear_display()
-    functions.typing_print('What was that? the outpost is now lit up there\n'
-                           'is a table snapped in half laying on the ground\n'
-                           'beside you. It was thrown by something or\n'
-                           'someone, you look around the room and you see\n'
-                           'something hiding in the shadows you approach and\n'
-                           'you see that its a ......\n')
+    functions.typing_print(
+        'What was that? the outpost is now lit up there is a table snapped\n'
+        'in half laying on the ground beside you. It was thrown by something\n'
+        'or someone, you look around the room and you see something hiding\n'
+        'in the shadows you approach and you see that its a ......\n')
     time.sleep(1)
     enemy = functions.gen_enemy()
     time.sleep(1)

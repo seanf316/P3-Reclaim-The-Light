@@ -90,14 +90,14 @@ def gen_char():
         attack = 10
         defense = 8
         health = 100
-        luck = random.randint(4, 6)
         ranged = 6
         magic = 6
+        luck = random.randint(4, 6)
 
     elif user_choice == "a":
         typing_print("\nGenerating Guardian.....")
-        attack = 6
-        defense = 7
+        attack = 5
+        defense = 8
         health = 100
         ranged = 12
         magic = 5
@@ -105,10 +105,10 @@ def gen_char():
 
     else:
         typing_print("\nGenerating Guardian.....\n")
-        attack = 4
+        attack = 6
         defense = 6
         health = 100
-        ranged = 8
+        ranged = 6
         magic = 12
         luck = random.randint(4, 6)
 
@@ -142,7 +142,7 @@ def gen_boss():
     file.close()
     health = random.randint(100, 120)
     attack = random.randint(15, 25)
-    defence = random.randint(1, 6)
+    defence = random.randint(1, 5)
     chance = random.randint(1, 8)
 
     return Enemy(health, attack, defence, chance, boss)
