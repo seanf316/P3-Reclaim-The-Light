@@ -6,7 +6,7 @@ NESSUS = '''
 You see Nessus in the distance, the journey was quick and without
 incident thank the lord for warp drive technology. Nessus has been
 abandoned by humans since the darkness war, creatures of the
-Darkness rome the land now. Commander Zavala has advised that
+Darkness roam the land now. Commander Zavala has advised that
 the light crystal may be in Sector 4 of Nessus, that is where you
 will begin your search....
 

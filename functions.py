@@ -53,6 +53,7 @@ def sleep():
             time.sleep(.5)
     return asleep
 
+
 # Game Functions
 ##################################################
 
@@ -63,11 +64,19 @@ def gen_char():
     """
     clear_display()
     print(Fore.GREEN + Style.BRIGHT + ascii_art.WELCOME)
-    name = input("What is your name Guardian: ").capitalize()
-    while len(name.strip(" ")) == 0:
-        print("I appreciate that you may want to keep your identity a secret\n"
-              "but we require a name to join our ranks....\n")
-        name = input("What is your name Guardian: ")
+    while True:
+        try:
+            name = input("What is your name Guardian: \n").strip().capitalize()
+            if name.isalnum():
+                typing_print(f"\nWelcome to the game {name}\n")
+                break
+            elif len(name.strip(" ")) == 0:
+                print("I appreciate that you may want to keep your identity\n"
+                      "a secret but we require a name to join our ranks....\n")
+            else:
+                raise ValueError()
+        except ValueError:
+            print("Invalid input - Please enter only letters and numbers\n")
     print(
         f'\nWell {name} what kind of Guardian are you?\n'
         f'\nWould you consider yourself a {Fore.GREEN}{Style.BRIGHT}'
