@@ -274,6 +274,7 @@ def encounter_1():
         functions.typing_print(
             '\nOne of the creatures moves forward thirsting for blood,\n'
             'you see that its.....\n')
+        time.sleep(1)
         enemy_1 = functions.gen_enemy()
         functions.battle(enemy_1, character)
         pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
@@ -282,6 +283,7 @@ def encounter_1():
             'One down one to go the second creature speaks...\n'
             'You will pay with your life guardian, it leaps into view\n'
             'its.....')
+        time.sleep(1)
         enemy_2 = functions.gen_enemy()
         functions.battle(enemy_2, character)
         functions.typing_print(
@@ -543,6 +545,7 @@ def reclaim():
     pause(
         f'\n{Fore.CYAN}{Style.BRIGHT}\n'
         f'Press any key to return to the homescreen...')
+    welcome_screen()
 
 
 def main():

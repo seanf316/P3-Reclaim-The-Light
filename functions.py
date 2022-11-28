@@ -124,7 +124,7 @@ def gen_enemy():
     enemy = lines[random.randint(0, len(lines)-1)][:-1]
     file.close()
 
-    health = random.randint(50, 100)
+    health = random.randint(80, 100)
     attack = random.randint(14, 20)
     chance = random.randint(1, 10)
     defence = random.randint(1, 5)
@@ -237,6 +237,8 @@ def found_loot(char):
     else:
         if assign == "luck":
             char.set_luck(char.get_luck()+value)
+            if char.get_luck() > 10:
+                char.set_luck(10)
             print("Your new Luck stat is...")
             print(char.get_luck(), "\n")
 
@@ -308,6 +310,8 @@ def loot(luck, char_luck):
         else:
             if assign == "luck":
                 char_luck.set_luck(char_luck.get_luck()+value)
+                if char_luck.get_luck() > 10:
+                    char_luck.set_luck(10)
                 print("Your new Luck stat is...")
                 print(char_luck.get_luck(), "\n")
 
