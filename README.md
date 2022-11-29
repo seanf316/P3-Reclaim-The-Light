@@ -90,7 +90,12 @@ When the user selects Start they will be brought to a screen with some bright as
 When the user has completed the Start setup they will be provided with a screen that displays some wepaon related ascii art along with their Guardian stats. The stats consist of 6 values (Attack, Defense, Health, Luck, Magic and Range) followed by the users name. The stats are generated based off the class chosen by the the user i.e. If they choose Mage the Magic stat will be higher compared to the other classes. The only stat that doesnt have a set value is the Luck stat which is generated within the gen_char() function and is setup to be a random value between 1 & 10.
 ![Stats](/docs/screenshots/stats.webp)
 
-
+### **Adventure Story**
+`
+User Story: As a user, I want to access a fun engaging story narrative throughout the game.
+`
+When the user has reviewed their stats they can press and button to begin the adventure. Each of the main narratives provides the user with a either bright ascii text or some ascii art that is related to that narrative the user is currently viewing. The text will again be displaying using the type print animation to draw the users attention to the screen. At the end of the narrative the user will be offered 2 choices, each choice sends the user on a different path allowing for a fun and engaging game.
+![Stats](/docs/screenshots/nessus.webp)
 
 ## Target Audience
 

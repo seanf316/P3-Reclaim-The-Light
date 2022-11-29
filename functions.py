@@ -128,7 +128,7 @@ def gen_enemy():
     """
     Spawn a random enemy and assigns stats
     """
-    file = open('docs/enemy.txt', 'r', encoding="utf8")
+    file = open('game_docs/enemy.txt', 'r', encoding="utf8")
     lines = file.readlines()
     enemy = lines[random.randint(0, len(lines)-1)][:-1]
     file.close()
@@ -145,7 +145,7 @@ def gen_boss():
     """
     Spawn a random enemy and assigns stats
     """
-    file = open('docs/boss.txt', 'r', encoding="utf8")
+    file = open('game_docs/boss.txt', 'r', encoding="utf8")
     lines = file.readlines()
     boss = lines[random.randint(0, len(lines)-1)][:-1]
     file.close()
@@ -196,8 +196,8 @@ def found_loot(char):
     """
     Applies found loot to character
     """
-    loot_list = ["docs/common.txt", "docs/legandary.txt",
-                 "docs/exotic.txt"]
+    loot_list = ["game_docs/common.txt", "game_docs/legandary.txt",
+                 "game_docs/exotic.txt"]
     listnum = random.randint(0, 2)
     item_type = loot_list[listnum]
     file = open(item_type, "r", encoding="utf8")
@@ -266,8 +266,8 @@ def loot(luck, char_luck):
         print("That creature dropped no loot...")
 
     else:
-        loot_list = ["docs/common.txt", "docs/legandary.txt",
-                     "docs/exotic.txt"]
+        loot_list = ["game_docs/common.txt", "game_docs/legandary.txt",
+                     "game_docs/exotic.txt"]
         listnum = random.randint(0, 2)
         item_type = loot_list[listnum]
         file = open(item_type, "r", encoding="utf8")
