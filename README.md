@@ -1,12 +1,12 @@
-# Movie Buff or Bluff
+# Reclaim The Light
 
-Movie Buff or Bluff is a Movie based Trivia Quiz site aimed at anyone who enjoys the world of cinema and testing their knowledge. It consists of 10 multiple choice questions with a 90-second timer and a Leaderboard so you can boast about your high score.
+Reclaim The Light is a text based adventure game that includes PVE elements. It is loosly based on the Destiny Universe and this is where I drew inspiration from.
 
 Developed by Sean Finn.
 
-![Am I Responsive Website Mockup](/docs/readme/techsini.PNG)
+![EZGIF Animation](/docs/gifs/reclaim-1.gif)
 
-[Movie Bluff or Buff - Live Webpage](https://seanf316.github.io/P2-Movie-Buff-Or-Bluff/) (Right-click to open in a new tab)
+[Reclaim The Light - Live Webpage](https://reclaim-the-light.herokuapp.com/) (Right-click to open in a new tab)
 
 ## Contents
 
