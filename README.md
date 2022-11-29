@@ -1,6 +1,10 @@
 # Reclaim The Light
 
-Reclaim The Light is a text based adventure game that includes PVE elements. It is loosly based on the Destiny Universe and this is where I drew inspiration from.
+## **Overview**
+
+Reclaim The Light is a text based adventure game that includes PVE elements. It is loosly based on the Destiny Universe and this is where I drew my inspiration the project.
+
+The game is aimed at every audience but may be enjoyed alot more by the older generations who grew up with text adventure games and fans of the Destiny universe.
 
 Developed by Sean Finn.
 
@@ -8,8 +12,13 @@ Developed by Sean Finn.
 
 [Reclaim The Light - Live Webpage](https://reclaim-the-light.herokuapp.com/) (Right-click to open in a new tab)
 
-## Contents
+## **Project Goals**
 
+This is my third portfolio project for [Code Institute](https://codeinstitute.net/) and my goal with this project is to display my newly acquired Python skills. I decided to build a classic text based adeventure game that included some PvE battle elements. The adventure is led by the players choices and each choice has an impact on how the story progresses.
+
+## **Contents**
+
+1. [Overview](#overview)
 1. [Project Goals](#project-goals)
 1. [Target Audience](#target-audience)
 1. [User Experience (UX)](#user-experience-ux)
@@ -31,9 +40,57 @@ Developed by Sean Finn.
 1. [Credits](#credits)
 1. [Acknowledgements](#acknowledgements)
 
-## Project Goals
+## **How to Play**
 
-This is my second portfolio project for [Code Institute](https://codeinstitute.net/) and my goal with this project is to display my newly acquired Javascript skills. I decided to build a Movie based quiz site that will allow repeated playability. To do this I set up the quiz to call on an API - [opentdb.com](https://opentdb.com/), to retrieve the questions and answers. I wanted the site to have a simple but pleasing layout and I wanted to have visuals to support the correct/incorrect answers. Most of all I wanted it to be fun.
+Reclaim The Light is a very easy game to play, all the player needs to do is input letters that correspond to the the choices provided to the player. The player's goal is to retrieve the Light cyrstal that was stolen by the evil creatures known as the Darkness. The Player will be sent on an adventure to the planet Nessus to fight the Darkness and Reclaim The Light.
+
+### ***Setup Phase:***
+
+The player will be asked for their name and be requested to pick a class for their "Guardian", the classes are "W" for "Warrior" , "A" for "Assasin" or "M" for "Mage". After that they will shown a screen containing their Guardian stats.
+
+### ***How to Win:***
+
+The player will make choices that will lead them into battles on occasion, if the players survives they will move on to the next part of the adventure leading to a boss battle at the end. If they defeat the boss they will Reclaim The Light and win the game. 
+
+## **User Stories:**
+As a user, I want to be able to:
+* Understand the aim of the story.
+* Have a straightforward way to read the game instructions from within.
+* To access a fun engaging story narrative throughout the game.
+* Find loot and upgrade stats.
+
+## **Features**
+
+### **Welcome Screen**
+The user is met with a bright Welcome Screen with some colored ascii text to provide an asthectically pleasing experience. There are 3 options to choose from Start, Mission Log or About.
+![Welcome Screen](/docs/screenshots/welcome.webp)
+
+### **Mission Log**
+`
+User Story: As a user, I want to be able to understand the aim of the story.
+`
+
+The Mission Log provides the user with the backstory and the aim of the game. It is displayed to the user using the type print animation followed up with the pause function imported from the py-getch Library. This allows the user to take their time reviewing the Mission Log text before pressing any key to return to Welcome Screen.
+![Mission Log](/docs/screenshots/mission_log.webp)
+### **About**
+`
+User Story: As a user, I want to have a straightforward way to read the game instructions from within.
+`
+
+The About section provide the user with details of what the game is and the instructions for the game. There is also a section that provides information on each Guardian class Warrior, Assassin or Mage. This will give the user a better idea on what class they would like to pick for the game.
+![About](/docs/screenshots/about.webp)
+
+### **Start**
+
+When the user selects Start they will be brought to a screen with some bright ascii text welcoming them to the game. They will then be prompted to enter a name for their Guardian which consists of only letters and numbers. The user upon completing that stage will be prompted to select 1 of the 3 possible classes provided Warrior, Assassin or Mage. After the user completes that step they will see the text - "Generating Guardian"
+![About](/docs/screenshots/setup.webp)
+
+### **Stats**
+
+When the user has completed the Start setup they will be provided with a screen that displays some wepaon related ascii art along with their Guardian stats. The stats consist of 6 values (Attack, Defense, Health, Luck, Magic and Range) followed by the users name. The stats are generated based off the class chosen by the the user i.e. If they choose Mage the Magic stat will be higher compared to the other classes. The only stat that doesnt have a set value is the Luck stat which is generated within the gen_char() function and is setup to be a random value between 1 & 10.
+![Stats](/docs/screenshots/stats.webp)
+
+
 
 ## Target Audience
 
