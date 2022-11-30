@@ -20,10 +20,9 @@ This is my third portfolio project for [Code Institute](https://codeinstitute.ne
 
 1. [Overview](#overview)
 1. [Project Goals](#project-goals)
-1. [Target Audience](#target-audience)
-1. [User Experience (UX)](#user-experience-ux)
-    - [User stories](#user-stories)
-    - [Design](#design)
+1. [How to Play](#how-to-play)
+    - [Setup Phase](#setup-phase)
+    - [How to Win](#how-to-win)
     - [Wireframes](#wireframes)
 1. [Features](#features)
 1. [Technologies Used](#technologies-used)
@@ -57,7 +56,7 @@ As a user, I want to be able to:
 * Understand the aim of the story.
 * Have a straightforward way to read the game instructions from within.
 * To access a fun engaging story narrative throughout the game.
-* Find loot and upgrade stats.
+* Find loot and upgrade my stats.
 
 ## **Features**
 
@@ -72,6 +71,7 @@ User Story: As a user, I want to be able to understand the aim of the story.
 
 The Mission Log provides the user with the backstory and the aim of the game. It is displayed to the user using the type print animation followed up with the pause function imported from the py-getch Library. This allows the user to take their time reviewing the Mission Log text before pressing any key to return to Welcome Screen.
 ![Mission Log](/docs/screenshots/mission_log.webp)
+
 ### **About**
 `
 User Story: As a user, I want to have a straightforward way to read the game instructions from within.
@@ -83,45 +83,100 @@ The About section provide the user with details of what the game is and the inst
 ### **Start**
 
 When the user selects Start they will be brought to a screen with some bright ascii text welcoming them to the game. They will then be prompted to enter a name for their Guardian which consists of only letters and numbers. The user upon completing that stage will be prompted to select 1 of the 3 possible classes provided Warrior, Assassin or Mage. After the user completes that step they will see the text - "Generating Guardian"
-![About](/docs/screenshots/setup.webp)
+![Start](/docs/screenshots/setup.webp)
 
 ### **Stats**
 
-When the user has completed the Start setup they will be provided with a screen that displays some wepaon related ascii art along with their Guardian stats. The stats consist of 6 values (Attack, Defense, Health, Luck, Magic and Range) followed by the users name. The stats are generated based off the class chosen by the the user i.e. If they choose Mage the Magic stat will be higher compared to the other classes. The only stat that doesnt have a set value is the Luck stat which is generated within the gen_char() function and is setup to be a random value between 1 & 10.
+When the user has completed the Start setup they will be provided with a screen that displays some wepaon related ascii art along with their Guardian stats. The stats consist of 6 values (Attack, Defense, Health, Luck, Magic and Range) followed by the users name. The stats are all generated using the gen_char() function that calls on the Guardian class. The stats change based off the class chosen by the the user i.e. If they choose Mage the Magic stat will be higher compared to the other classes. The only stat that doesnt have a set value is the Luck stat which is generated within the gen_char() function and is setup to be a random value i.e. luck = random.randint(4, 6)
 ![Stats](/docs/screenshots/stats.webp)
 
 ### **Adventure Story**
 `
 User Story: As a user, I want to access a fun engaging story narrative throughout the game.
 `
+
 When the user has reviewed their stats they can press and button to begin the adventure. Each of the main narratives provides the user with a either bright ascii text or some ascii art that is related to that narrative the user is currently viewing. The text will again be displaying using the type print animation to draw the users attention to the screen. At the end of the narrative the user will be offered 2 choices, each choice sends the user on a different path allowing for a fun and engaging game.
-![Stats](/docs/screenshots/nessus.webp)
+![Adventure Story](/docs/screenshots/nessus.webp)
 
-## Target Audience
+### **Loot**
+`
+User Story: As a user, I want find loot and upgrade my stats.
+`
 
-The target audience for this site is anyone who enjoys the world of cinema and testing their knowledge via a quiz-based game.
+Theres are three forms of loot in the game - Common, Legendary & Exotic. Each item of loot contains a Rarity, Name, Value & stat Assignement i.e. Common - Worn Sword - 1 - Attack.
 
-## User Experience (UX)
+Common items have a Value of 1, Legendary items have a Value of 2 and Exotic items have a Value of 3. Loot values are added to the players stats when the are found in chests or dropped from enemies. Image below consists of what the user will see (examples):
 
-- ### User stories
+Common items are displayed in the color CYAN
 
-    - #### First Time Visitor Goals
+Legendary items are displayed in the color MAGENTA
 
-        -   As a First Time Visitor, I want to easily understand the main purpose of the site.
-        -   As a First Time Visitor, I want to understand the rules of the quiz.
-        -   As a First Time Visitor, I want to be able to view the site on multiple devices.
+Exotic items are displayed in the color YELLOW
+![Loot](/docs/screenshots/loot.webp)
 
-    -   #### Returning Visitor Goals
+### **Battle Sequence**
 
-        -   As a Returning Visitor, I want to see new questions.
-        -   As a Returning Visitor, I want to learn more about any updates.
-        -   As a Returning Visitor, I want to find the best way to get in contact with the site developer.
+#### **Initiating Battle**
+`
+User Story: As a user, I want to access a fun engaging story narrative throughout the game.
+`
 
-    -   #### Frequent User Goals
+When the user has entered into a fight with an enemy a new screen will display containing the following:
 
-        -   As a Frequent User, I want to be able to view my best scores.
-        -   As a Frequent User, I want to check to see if there are any new sections added to the site.
-        -   As a Frequent User, I want to sign up so that I am emailed any major updates and/or changes to the website.
+Ascii art - I choose a skull head to engage the user and its colored in red to draw the users attention to the screen.
+
+Enemy name - The enemy name is taken randomly from the enemy.txt file. Its colored in red to draw the users attention to the screen.
+
+Enemy stats - The enemy stats are generated using the gen_enemy() function that calls the Enemy class. The stats consist of Health, Attack, Defense, Chance and Name. Each stat generates a random number between the values set in the function i.e. health = random.randint(80, 100)
+![Initiating Battle](/docs/screenshots/battle.webp)
+
+#### **Engaged in Battle**
+`
+User Story: As a user, I want to access a fun engaging story narrative throughout the game.
+`
+
+When the battle begins user will have first turn to attack, they will be prompted to enter "C" for "Close attack", "R" for "Ranged" attack or "M" for "Magic" attack.
+
+After selecting an attack the following text will display: "You wind up for the attack..."
+
+The strike_chance() function is called to determine whether the players attack is successful. If attack is successful the amount of health lost by the enemy is calculated by the attack value used minus the enemys defense value i.e. 
+
+if choice == "c":
+            damage = guardian.get_attack() - enemy.get_e_defence()
+
+The user will be alerted that their attack was successful and the enemy's new health stat will be displayed. If the user's attack was not successful the following text will be displayed: "You missed! Enemy dodged your attack".
+
+It will be the enemy's turn now, the enemy_attack() function is now called to determine if enemy attack will be successful. If attack is successful the amount of health lost by the user is calculated by the attack value used minus the user's defense value i.e. 
+
+loss = attack_value - defence
+
+If enemy attack is successful the user will be alerted and their new health stat will be displayed.
+
+Some of the text displayed with the color Red to engage the user and signify the imagery of blood lost.
+
+![Engaged in Battle](/docs/screenshots/battle1.webp)
+
+#### **Battle Victory**
+`
+User Story: As a user, I want find loot and upgrade my stats.
+`
+
+If the enemy is defeated by the user the user will be alerted i.e. "Centurian, has been slain!"
+
+The loot() function is then called. It picks a randomint between 0 and 7 and if the value provided is greater then the users current luck value the enemy wont drop any loot and the following text will display: "That creature dropped no loot..."
+
+If the users luck value is greater then the randomint then the enemy will drop loot. It will be displayed to the user with the text "The enemy dropped an....." along with the loot values retreived from the loot .txt files. The value of the loot will be added to the user's current stats and stats will be displayed to the user.
+
+![Battle Victory](/docs/screenshots/battle2.webp)
+
+#### **Battle Lost**
+`
+User Story: As a user, I want to access a fun engaging story narrative throughout the game.
+`
+
+If the user is defeated a new screen will be displayed alerting the user that they have been slain along with some Game Over ascii art. The user will also see some text advising to press any key to return to Welcome Screen.
+
+![Battle Lost](/docs/screenshots/gameover.webp)
 
 -   ### Design
 

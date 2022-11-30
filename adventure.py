@@ -340,8 +340,9 @@ def encounter_3():
     for key, value in stats.items():
         pprint(f"{key.capitalize()} : {value}")
     pause(f"\n{Fore.CYAN}{Style.BRIGHT}\nPress any key to continue...")
-    functions.typing_print("That was tough but I need to keep moving and get"
+    functions.typing_print("\nThat was tough but I need to keep moving and get"
                            "to the mines....")
+    time.sleep(1)
     mines()
 
 

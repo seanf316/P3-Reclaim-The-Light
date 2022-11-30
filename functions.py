@@ -135,7 +135,7 @@ def gen_enemy():
 
     health = random.randint(80, 100)
     attack = random.randint(14, 20)
-    chance = random.randint(1, 10)
+    chance = random.randint(1, 8)
     defence = random.randint(1, 5)
 
     return Enemy(health, attack, defence, chance, enemy)
@@ -261,7 +261,7 @@ def loot(luck, char_luck):
     """
     Calculates chance of loot dropping from enemy
     """
-    loot_chance = random.randint(0, 4)
+    loot_chance = random.randint(0, 7)
     if luck < loot_chance:
         print("That creature dropped no loot...")
 
@@ -437,4 +437,6 @@ def battle(enemy, guardian):
             if guardian.get_health() < 100:
                 guardian.set_health(100)
             loot(guardian.get_luck(), guardian)
+            if guardian.get_luck() > 10:
+                guardian.set_luck(10)
             return True
