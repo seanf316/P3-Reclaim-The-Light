@@ -8,7 +8,7 @@ The game is aimed at every audience but may be enjoyed alot more by the older ge
 
 Developed by Sean Finn.
 
-![EZGIF Animation](/docs/gifs/reclaim-1.gif)
+![EZGIF Animation](/docs/gifs/reclaim_1.gif)
 
 [Reclaim The Light - Live Webpage](https://reclaim-the-light.herokuapp.com/) (Right-click to open in a new tab)
 
@@ -20,6 +20,9 @@ This is my third portfolio project for [Code Institute](https://codeinstitute.ne
 
 1. [Overview](#overview)
 1. [Project Goals](#project-goals)
+1. [Design](#design)
+    - [Imagery](#imagery)
+    - [Color Scheme](#color-scheme)
 1. [How to Play](#how-to-play)
     - [Setup Phase](#setup-phase)
     - [How to Win](#how-to-win)
@@ -39,15 +42,25 @@ This is my third portfolio project for [Code Institute](https://codeinstitute.ne
 1. [Credits](#credits)
 1. [Acknowledgements](#acknowledgements)
 
+## **Design**
+
+### **Imagery**
+
+I have included Ascii text and Ascii art throughout the adventure to grab the users attention and provide and asthectically pleasing experience.
+
+### **Colour Scheme**
+
+I used the Colorama Library to apply coloring to my project. Green and Red are used the most throughout along with Blue for the pause() functions. CYAN, MAGENTA & YELLOW were used to display the loot items. I have changed the background of the page to Black and added a White border to the terminal to contrast well with the text and colors used.
+
 ## **How to Play**
 
 Reclaim The Light is a very easy game to play, all the player needs to do is input letters that correspond to the the choices provided to the player. The player's goal is to retrieve the Light cyrstal that was stolen by the evil creatures known as the Darkness. The Player will be sent on an adventure to the planet Nessus to fight the Darkness and Reclaim The Light.
 
-### ***Setup Phase:***
+### **Setup Phase:**
 
 The player will be asked for their name and be requested to pick a class for their "Guardian", the classes are "W" for "Warrior" , "A" for "Assasin" or "M" for "Mage". After that they will shown a screen containing their Guardian stats.
 
-### ***How to Win:***
+### **How to Win:**
 
 The player will make choices that will lead them into battles on occasion, if the players survives they will move on to the next part of the adventure leading to a boss battle at the end. If they defeat the boss they will Reclaim The Light and win the game. 
 
@@ -178,116 +191,17 @@ If the user is defeated a new screen will be displayed alerting the user that th
 
 ![Battle Lost](/docs/screenshots/gameover.webp)
 
--   ### Design
+### **Adventure Victory Screen**
+`
+User Story: As a user, I want to access a fun engaging story narrative throughout the game.
+`
 
-    -   #### Imagery
+If the user completes the adventure without dying they will be provided a message stating that they "Reclaimed The Light" and a thank you message. Ascii Text along with ascii art is used here to grab the users attention. The user will be then prompted to return to the Welcome Screen where they can start another adventure if they choose to do so.
 
-        -   I have included a custom logo created with Canva, the colors of which match the color scheme for the website.
+![EZGIF Animation](/docs/gifs/reclaim_2.gif)
 
-    -   #### Colour Scheme
 
-        -   I wanted the color scheme to be simple but aesthetically pleasing. I chose 4 colors that were implemented across all the site pages and they contrast well together.
-        ![Coolors Image](/docs/readme/coolors.png)
 
-    -   #### Typography
-
-        -   The Poppins font is the main font used throughout the website with Sans Serif as the fallback. I used variations of font weight for the headers and question text etc.
-
-*   ### Wireframes
-
-This is the prototype of the project that may change during its development.
-<details><summary>Desktop</summary>
-
-![Tablet Desktop Part 1](/docs/readme/wireframes/desktopwireframe-part1.PNG)
-![Tablet Desktop Part 2](/docs/readme/wireframes/desktopwireframe-part2.PNG)
-![Tablet Desktop Part 3](/docs/readme/wireframes/desktopwireframe-part3.PNG)
-![Tablet Desktop Part 4](/docs/readme/wireframes/desktopwireframe-part4.PNG)
-![Tablet Desktop Part 5](/docs/readme/wireframes/desktopwireframe-part5.PNG)
-![Tablet Desktop Part 6](/docs/readme/wireframes/desktopwireframe-part6.PNG)
-![Tablet Desktop Part 7](/docs/readme/wireframes/desktopwireframe-part7.PNG)
-![Tablet Desktop Part 8](/docs/readme/wireframes/desktopwireframe-part8.PNG)
-![Tablet Desktop Part 9](/docs/readme/wireframes/desktopwireframe-part9.PNG)
-![Tablet Desktop Part 10](/docs/readme/wireframes/desktopwireframe-part10.PNG)
-
-</details>
-<details><summary>Tablet</summary>
-
-![Tablet Wireframe Part 1](/docs/readme/wireframes/tabletwireframe-part1.PNG)
-![Tablet Wireframe Part 2](/docs/readme/wireframes/tabletwireframe-part2.PNG)
-![Tablet Wireframe Part 3](/docs/readme/wireframes/tabletwireframe-part3.PNG)
-![Tablet Wireframe Part 4](/docs/readme/wireframes/tabletwireframe-part4.PNG)
-
-</details>
-<details><summary>Mobile</summary>
-
-![Mobile Wireframe Part 1](/docs/readme/wireframes/mobilewireframe-part1.PNG)
-![Mobile Wireframe Part 2](/docs/readme/wireframes/mobilewireframe-part2.PNG)
-
-</details>
-
-[Back to top &uarr;](#contents)
-
-## Features
-
-### Highscores
-
-The Highscores page can be accessed via the Highscores button on the homepage of the website, when clicked it will display the users Highscores and give the option to return Home, Play Quiz or Clear Highscores. I was in 2 minds whether to include the Clear Highscores button but from speaking to class mates/family/mentor majority feedback was that they were happy to have it there. 
-![Desktop Highscores](/docs/readme/features/desktop-highscores.PNG)
-
-### Instructions Modal
-
-The Instructions Modal can be accessed via the Instructions button on the homepage of the website, when clicked it will display the instructions for the quiz and advise the user that local storage will be used to store Highscores. The user can close the modal by clicking on the "X" icon displayed at the top of the modal or can click anywhere outside the modal space.
-![Desktop Instructions Modal](/docs/readme/features/desktop-instructions.PNG)
-
-### Sign Up/Feedback
-
-The Sign Up/Feedback section is available on the homepage, it allows the user to sign up for the site newsletter and offer their feedback on the site/quiz.
-![Desktop Signup](/docs/readme/features/desktop-signup.PNG)
-
-### Footer
-
-The footer is placed at the bottom of the page. It contains the social media links displayed with icons provided by Font Awesome. There is also a small portion of text for the Copyright/Disclaimer. This is where the user can click on a social media link and reach out to the developer for news and updates.
-![Desktop Footer](/docs/readme/features/desktop-footer.PNG)
-
-### Quiz
-
-The Quiz content can be accessed from the "Let's get started ->" button on the Homepage. There is a custom loader in place that will hide when the quiz is ready. The quiz features a timer, sound effects which can be toggled on/off (sound toggled off as standard), a progress bar/text, questions, answers, and a check answer button. The timer is set to 90 seconds, if the user does not answer the 10 questions in the allocated time the quiz will automatically finish. There is a sound effect for the correct answer, incorrect answer, and click when selecting an answer. The progress bar/text are both dynamic and update with each question asked. The questions and answers are fetched from the Opentdb API to allow for more replayability. As a design choice, I wanted a check answer button instead of just displaying the correct answer instantly, the reason for this is I found that a user may click an answer they didn't want sometimes by mistake, and at least with the check answer button it should remedy that situation. When the user does click on an answer and then selects the "CHECK ANSWER" button the button hides and the result appears in its place. The correct answer will be signified with green background and text confirming Correct Answer. When the answer selected is incorrect the result will be signified with a red background and text confirming Incorrect Answer and text signifying what the correct answer was. If the user doesn't click on an answer and then selects the "CHECK ANSWER" button the result area will display briefly the following text "Please select an answer!".
-![Desktop Loader](/docs/readme/features/desktop-loader.PNG)
-![Desktop Quiz](/docs/readme/features/desktop-quiz.PNG)
-![Desktop Quiz Hover](/docs/readme/features/desktop-quiz-hover.PNG)
-![Desktop Quiz Correct](/docs/readme/features/desktop-quiz-correct.PNG)
-![Desktop Quiz Incorrect](/docs/readme/features/desktop-quiz-incorrect.PNG)
-![Desktop Quiz Select Answer](/docs/readme/features/desktop-quiz-check.PNG)
-
-### End of Quiz
-
-When the user has finished the quiz the results will display. If the user has not answered any questions correctly the username entry will be hidden and they will be instructed to Play Again to get their name on the Leaderboard. If the user does answer some questions correctly their results will be shown along with a message and movie quote - these will change based on users' results. They will now be able to enter a username - there is an indication to tell the user that their username needs to be between 4 and 10 characters with no spaces (spaces have been disabled in the code). If the user enters less than 4 characters or more than 10 and try's to save the Save button will be disabled, if the user enters a username between 4 & 10 characters the indication text will hide, and user can save their username. When the user saves their username they will be redirected to the Highscores page.
-![Desktop Quiz No Score](/docs/readme/features/desktop-end-noscore.PNG)
-![Desktop Quiz Score One](/docs/readme/features/desktop-end-score.PNG)
-![Desktop Quiz Username](/docs/readme/features/desktop-end-username.PNG)
-![Desktop Quiz Username Alert](/docs/readme/features/desktop-end-username-alert.PNG)
-![Desktop Quiz Score Four](/docs/readme/features/desktop-end-score4.PNG)
-![Desktop Quiz Score Six](/docs/readme/features/desktop-end-score6.PNG)
-![Desktop Quiz Score Eight](/docs/readme/features/desktop-end-score8.PNG)
-![Desktop Quiz Score Ten](/docs/readme/features/desktop-end-score10.PNG)
-
-### Thank You
-
-When the user fills out the form sections and clicks the "SIGN UP" button a Thank You message will be displayed along with text to indicate they have been registered and a movie quote. There is a "Return Home" button to redirect the user back to the main site.
-![Desktop Thank You](/docs/readme/features/desktop-thankyou.PNG)
-
-### 404
-
-If the user enters an incorrect URL a 404 page will appear, it indicates something went wrong and includes a movie quote and a "Home" button that directs the user to the site.
-![Desktop 404](/docs/readme/features/desktop-404.PNG)
-
-### Mobile
-
-The site was created Mobile first and scaled up to larger devices with media queries.
-![Mobile View](/docs/readme/features/mobile-part1.PNG)
-![Mobile View](/docs/readme/features/mobile-part2.PNG)
-
-[Back to top &uarr;](#contents)
 
 ## Technologies Used
 
