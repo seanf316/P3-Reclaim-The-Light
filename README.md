@@ -1,4 +1,4 @@
-# Reclaim The Light
+# **Reclaim The Light**
 
 ## **Overview**
 
@@ -26,6 +26,10 @@ This is my third portfolio project for [Code Institute](https://codeinstitute.ne
 1. [How to Play](#how-to-play)
     - [Setup Phase](#setup-phase)
     - [How to Win](#how-to-win)
+1. [User Stories](#user-stories)
+1. [Data Model](#data-model)
+    - [Classes](#classes)
+    - [Game Flow](#game-flow)
 1. [Features](#features)
 1. [Libraries](#libraries)
 1. [Technologies Used](#technologies-used)
@@ -66,9 +70,25 @@ As a user, I want to be able to:
 * To access a fun engaging story narrative throughout the game.
 * Find loot and upgrade my stats.
 
-## **Game Flow Chart**
+[Back to top &uarr;](#contents)
+
+## **Data Model**
+
+### **Classes**
+With Object-Oriented Programming in mind I have created two classes for my project Guardian & Enemy.
+
+The Guardian class is called once throughout the adventure. The Guardian object is created when called by the gen_char() function. The Enemy class is called upon several times throughout for various battles. The Enemy Object is created when called by the gen_enemy() function.
+
+The classes and their associated methods are stored in separate files to allow for separating the code into parts that hold related data and functionality. This will allow any future expansion and development of this project to have a clear structure and also for any code re-use and sharing as well as maintenance.
+See class details below:
+
+![Classes](/docs/flowchart/classes.webp)
+
+### **Game Flow**
 I created the below flowchart to visualize the flow of the game and functions used.
 ![Flowchart](/docs/flowchart/reclaim_flowchart.webp)
+
+[Back to top &uarr;](#contents)
 
 ## **Features**
 
@@ -199,6 +219,8 @@ If the user completes the adventure without dying they will be provided a messag
 
 ![EZGIF Animation](/docs/gifs/reclaim_2.gif)
 
+[Back to top &uarr;](#contents)
+
 ## **Libraries**
 For this project I used the following libraries:
 
@@ -223,6 +245,8 @@ For this project I used the following libraries:
 ### ***colorama:***
 -   Fore & Style were imported from colorama to style the font, ascii text and ascii art with color.
 
+[Back to top &uarr;](#contents)
+
 ## **Technologies Used**
 
 ### **Languages Used**
@@ -238,6 +262,8 @@ For this project I used the following libraries:
     - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 1. [GitHub:](https://github.com/)
     - GitHub is used to store the project's code after being pushed from Git.
+1. [Heroku](https://www.heroku.com/)
+    - Heroku was used to deploy the app.
 1. [XConvert](www.xconvert.com)
     - XConvert was used to convert images to webp or png where required.
 1. [Stackoverflow](https://stackoverflow.com/)
@@ -250,6 +276,10 @@ For this project I used the following libraries:
     - Quicktime Player was used to take recordings of the screen.
 1. [ezgif.com](https://ezgif.com/)
     - ezgif.com was used to convert screen recordings to gif.
+1. [Xnip](https://www.xnipapp.com/)
+    - Xnip was used to capture all the game screenshots.
+1. [Lucidchart.com](https://www.lucidchart.com/pages/)
+    - The Lucidchart app was used to create the apps flowcharts.
 
 [Back to top &uarr;](#contents)
 
@@ -263,6 +293,8 @@ I would like to add the following updates in the future when time permits:
 1. Enemy Weakness - I would like to add a weakness stat for the enemy to a specific Guardian attack, it wasn't part of my original scope for the adventure but something I would be interested in implementing in the future.
 2. Battle graphic animations - show the user and enemy in batlle with moving Graphics.
 3. Sound Effects - I would like to apply sound effects for the different Narratives and for the battle sequences.
+
+[Back to top &uarr;](#contents)
 
 ## **Deployment**
 
@@ -314,10 +346,6 @@ Once GitHub is chosen, find your repository and connect it to Heroku.
     - Corey Schafer for the Python OOP Tutorial series for general reference on working with classes and OOP in general.
 1. [delftstack.com](https://www.delftstack.com/howto/python/python-clear-console/)
     - Provided the clear display function used in the project.
-1. [Lucidchart.com](https://www.lucidchart.com/pages/)
-    - The Lucidchart app was used to create the apps flowchart.
-1. [Xnip](https://www.xnipapp.com/)
-    - Xnip was used to capture all the game screenshots.
 1. [Stackoverflow](https://stackoverflow.com/)
     - I found myself on Stackoverflow so many times researching issues with python code. This a fantastic place to learn and troubleshoot code.
 1. [Slack](https://slack.com/intl/en-ie/)
@@ -330,6 +358,5 @@ Once GitHub is chosen, find your repository and connect it to Heroku.
 - My class mate Sean Johnston for the continuous testing of my project throughout and for being there to bounce ideas off.
 - My class mates Victoria Traynor & Monica Murray for reviewing and testing my Project thanks guys.
 - To my mentor Daisy Mc Girr, this was my first full project with Daisy and she really goes above and beyond. Even outside of the project planning she is great for advice and is a great help to the Slack community too.
-
 
 [Back to top &uarr;](#contents)
