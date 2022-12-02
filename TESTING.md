@@ -13,7 +13,11 @@ A wide range of testing was carried out during development by myself and also by
 1. [Validators](#validators)
 
 ## **Input Testing**
-All inputs are set to .lower() except the Guardian name which uses capitalize(), the .lower() inputs have been tested with lowercase & uppercase letters, and all work as expected. All user inputs were printed back to the console to check all functions and methods were correctly applied to the input. The below flowchart shows each input within the adventure tested. 
+All inputs are set to .lower() except the Guardian name which uses capitalize(), the .lower() inputs have been tested with lowercase & uppercase letters, and all work as expected. All user inputs were printed back to the console to check all functions and methods were correctly applied to the input.
+
+While story text is being printed to the terminal if the user presses the enter button or any other button that action will be taken as their next input. They will be alerted that the input is incorrect and asked to enter correct input.
+
+The below flowchart shows each input within the adventure tested. 
 ![Flowchart](/docs/flowchart/testing_flowchart.webp)
 
 [Back to top &uarr;](#contents)
