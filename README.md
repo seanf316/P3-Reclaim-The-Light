@@ -10,7 +10,7 @@ Developed by Sean Finn.
 
 ![EZGIF Animation](/docs/gifs/reclaim_1.gif)
 
-[Reclaim The Light - Live Webpage](https://reclaim-the-light.herokuapp.com/) (Right-click to open in a new tab)
+[Reclaim The Light - Live Webpage](https://reclaim-the-light-p3.herokuapp.com/) (Right-click to open in a new tab)
 
 ## **Project Goals**
 
@@ -334,7 +334,7 @@ The below steps were followed to deploy this project to Heroku:
 5. Leave "Settings" and go to "Deploy". Scroll down and set Deployment Method to GitHub.
 Once GitHub is chosen, find your repository and connect it to Heroku.
 6. Scroll down to Manual Deploy, make sure the "main" branch is selected and click "Deploy Branch". 
-7. The deployed app can be found [here](https://reclaim-the-light.herokuapp.com/).
+7. The deployed app can be found [here](https://reclaim-the-light-p3.herokuapp.com/).
 
 [Back to top &uarr;](#contents)
 
