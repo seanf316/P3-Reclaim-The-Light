@@ -2,9 +2,9 @@
 
 ## **Overview**
 
-Reclaim The Light is a text based adventure game that includes PVE elements. It is loosly based on the Destiny Universe and this is where I drew my inspiration the project.
+Reclaim The Light is a text-based adventure game that includes PVE elements. It is loosely based on the Destiny Universe and this is where I drew my inspiration for the project.
 
-The game is aimed at every audience but may be enjoyed alot more by the older generations who grew up with text adventure games and fans of the Destiny universe.
+The game is aimed at every audience but may be enjoyed a lot more by the older generations who grew up with text adventure games and fans of the Destiny universe.
 
 Developed by Sean Finn.
 
@@ -14,7 +14,7 @@ Developed by Sean Finn.
 
 ## **Project Goals**
 
-This is my third portfolio project for [Code Institute](https://codeinstitute.net/) and my goal with this project is to display my newly acquired Python skills. I decided to build a classic text based adeventure game that included some PvE battle elements. The adventure is led by the players choices and each choice has an impact on how the story progresses.
+This is my third portfolio project for [Code Institute](https://codeinstitute.net/) and my goal with this project is to display my newly acquired Python skills. I decided to build a classic text-based adventure game that included some PvE battle elements. The adventure is led by the player's choices and each choice has an impact on how the story progresses.
 
 ## **Contents**
 
@@ -45,7 +45,7 @@ This is my third portfolio project for [Code Institute](https://codeinstitute.ne
 
 ### **Imagery**
 
-I have included Ascii text and Ascii art throughout the adventure to grab the users attention and provide and asthectically pleasing experience. The font used for the Ascii text was ANSI Shadow and provided by [patorjk.com](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20). The Ascii art was retreived from a few different locations - [ascii.co.uk](https://ascii.co.uk/art) & [https://www.asciiart.eu/](https://www.asciiart.eu/).
+I have included Ascii text and Ascii art throughout the adventure to grab the user's attention and provide an aesthetically pleasing experience. The font used for the Ascii text was ANSI Shadow and provided by [patorjk.com](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20). The Ascii art was retrieved from a few different locations - [ascii.co.uk](https://ascii.co.uk/art) & [https://www.asciiart.eu/](https://www.asciiart.eu/).
 
 ### **Colour Scheme**
 
@@ -53,15 +53,15 @@ I used the Colorama Library to apply coloring to my project. Green and Red are u
 
 ## **How to Play**
 
-Reclaim The Light is a very easy game to play, all the player needs to do is input letters that correspond to the the choices provided to the player. The player's goal is to retrieve the Light cyrstal that was stolen by the evil creatures known as the Darkness. The Player will be sent on an adventure to the planet Nessus to fight the Darkness and Reclaim The Light.
+Reclaim The Light is a very easy game to play, all the player needs to do is input letters that correspond to the choices provided to the player. The player's goal is to retrieve the Light crystal that was stolen by the evil creatures known as the Darkness. The Player will be sent on an adventure to the planet Nessus to fight the Darkness and Reclaim The Light.
 
 ### **Setup Phase:**
 
-The player will be asked for their name and be requested to pick a class for their "Guardian", the classes are "W" for "Warrior" , "A" for "Assasin" or "M" for "Mage". After that they will shown a screen containing their Guardian stats.
+The player will be asked for their name and be requested to pick a class for their "Guardian", the classes are "W" for "Warrior", "A" for "Assasin" or "M" for "Mage". After that, they will be shown a screen containing their Guardian stats.
 
 ### **How to Win:**
 
-The player will make choices that will lead them into battles on occasion, if the players survives they will move on to the next part of the adventure leading to a boss battle at the end. If they defeat the boss they will Reclaim The Light and win the game. 
+The player will make choices that will lead them into battles on occasion, if the player survives they will move on to the next part of the adventure leading to a boss battle at the end. If they defeat the boss they will Reclaim The Light and win the game. 
 
 ## **User Stories**
 As a user, I want to be able to:
@@ -75,9 +75,9 @@ As a user, I want to be able to:
 ## **Data Model**
 
 ### **Classes**
-With Object-Oriented Programming in mind I have created two classes for my project Guardian & Enemy.
+With Object-Oriented Programming in mind, I have created two classes for my project Guardian & Enemy.
 
-The Guardian class is called once throughout the adventure. The Guardian object is created when called by the gen_char() function. The Enemy class is called upon several times throughout for various battles. The Enemy Object is created when called by the gen_enemy() function.
+The Guardian class is called once throughout the adventure. The Guardian object is created when called by the gen_char() function. The Enemy class is called upon several times throughout various battles. The Enemy Object is created when called by the gen_enemy() function.
 
 The classes and their associated methods are stored in separate files to allow for separating the code into parts that hold related data and functionality. This will allow any future expansion and development of this project to have a clear structure and also for any code re-use and sharing as well as maintenance.
 See class details below:
@@ -85,7 +85,7 @@ See class details below:
 ![Classes](/docs/flowchart/classes.webp)
 
 ### **Game Flow**
-I created the below flowchart to visualize the flow of the game and functions used.
+I created the below flowchart to visualize the flow of the game and the functions used.
 ![Flowchart](/docs/flowchart/reclaim_flowchart.webp)
 
 [Back to top &uarr;](#contents)
@@ -93,7 +93,7 @@ I created the below flowchart to visualize the flow of the game and functions us
 ## **Features**
 
 ### **Welcome Screen**
-The user is met with a bright Welcome Screen with some colored ascii text to provide an asthectically pleasing experience. There are 3 options to choose from Start, Mission Log or About.
+The user is met with a bright Welcome Screen with some colored Ascii text to provide an aesthetically pleasing experience. There are 3 options to choose from Start, Mission Log, or About.
 ![Welcome Screen](/docs/screenshots/welcome.webp)
 
 ### **Mission Log**
@@ -109,17 +109,17 @@ The Mission Log provides the user with the backstory and the aim of the game. It
 User Story: As a user, I want to have a straightforward way to read the game instructions from within.
 `
 
-The About section provide the user with details of what the game is and the instructions for the game. There is also a section that provides information on each Guardian class Warrior, Assassin or Mage. This will give the user a better idea on what class they would like to pick for the game.
+The About section provides the user with details of what the game is and the instructions for the game. There is also a section that provides information on each Guardian class Warrior, Assassin, or Mage. This will give the user a better idea of what class they would like to pick for the game.
 ![About](/docs/screenshots/about.webp)
 
 ### **Start**
 
-When the user selects Start they will be brought to a screen with some bright ascii text welcoming them to the game. They will then be prompted to enter a name for their Guardian which consists of only letters and numbers. The user upon completing that stage will be prompted to select 1 of the 3 possible classes provided Warrior, Assassin or Mage. After the user completes that step they will see the text - "Generating Guardian"
+When the user selects Start they will be brought to a screen with some bright Ascii text welcoming them to the game. They will then be prompted to enter a name for their Guardian which consists of only letters and numbers. The user upon completing that stage will be prompted to select 1 of the 3 possible classes provided Warrior, Assassin, or Mage. After the user completes that step they will see the text - "Generating Guardian"
 ![Start](/docs/screenshots/setup.webp)
 
 ### **Stats**
 
-When the user has completed the Start setup they will be provided with a screen that displays some wepaon related ascii art along with their Guardian stats. The stats consist of 6 values (Attack, Defense, Health, Luck, Magic and Range) followed by the users name. The stats are all generated using the gen_char() function that calls on the Guardian class. The stats change based off the class chosen by the the user i.e. If they choose Mage the Magic stat will be higher compared to the other classes. The only stat that doesnt have a set value is the Luck stat which is generated within the gen_char() function and is setup to be a random value i.e. luck = random.randint(4, 6)
+When the user has completed the Start setup they will be provided with a screen that displays some weapon-related ASCII art along with their Guardian stats. The stats consist of 6 values (Attack, Defense, Health, Luck, Magic, and Range) followed by the user's name. The stats are all generated using the gen_char() function that calls on the Guardian class. The stats change based on the class chosen by the user i.e. If they choose Mage the Magic stat will be higher compared to the other classes. The only stat that doesn't have a set value is the Luck stat which is generated within the gen_char() function and is set up to be a random value i.e. luck = random.randint(4, 6)
 ![Stats](/docs/screenshots/stats.webp)
 
 ### **Adventure Story**
@@ -127,17 +127,17 @@ When the user has completed the Start setup they will be provided with a screen 
 User Story: As a user, I want to access a fun engaging story narrative throughout the game.
 `
 
-When the user has reviewed their stats they can press and button to begin the adventure. Each of the main narratives provides the user with a either bright ascii text or some ascii art that is related to that narrative the user is currently viewing. The text will again be displaying using the type print animation to draw the users attention to the screen. At the end of the narrative the user will be offered 2 choices, each choice sends the user on a different path allowing for a fun and engaging game.
+When the user has reviewed their stats they can press any button to begin the adventure. Each of the main narratives provides the user with either bright Ascii text or some ASCII art that is related to the narrative the user is currently viewing. The text will again be displayed using the type print animation to draw the user's attention to the screen. At the end of the narrative, the user will be offered 2 choices, each choice sends the user on a different path allowing for a fun and engaging game.
 ![Adventure Story](/docs/screenshots/nessus.webp)
 
 ### **Loot**
 `
-User Story: As a user, I want find loot and upgrade my stats.
+User Story: As a user, I want to find loot and upgrade my stats.
 `
 
-Theres are three forms of loot in the game - Common, Legendary & Exotic. Each item of loot contains a Rarity, Name, Value & stat Assignement i.e. Common - Worn Sword - 1 - Attack.
+There are three forms of loot in the game - Common, Legendary & Exotic. Each item of loot contains a Rarity, Name, Value & stat Assignment i.e. Common - Worn Sword - 1 - Attack.
 
-Common items have a Value of 1, Legendary items have a Value of 2 and Exotic items have a Value of 3. Loot values are added to the players stats when the are found in chests or dropped from enemies. Image below consists of what the user will see (examples):
+Common items have a Value of 1, Legendary items have a Value of 2 and Exotic items have a Value of 3. Loot values are added to the player's stats when they are found in chests or dropped from enemies. The image below consists of what the user will see (examples):
 
 Common items are displayed in the color CYAN
 
@@ -155,11 +155,11 @@ User Story: As a user, I want to access a fun engaging story narrative throughou
 
 When the user has entered into a fight with an enemy a new screen will display containing the following:
 
-Ascii art - I choose a skull head to engage the user and its colored in red to draw the users attention to the screen.
+Ascii art - I choose a skull head to engage the user and it is colored in red to draw the user's attention to the screen.
 
-Enemy name - The enemy name is taken randomly from the enemy.txt file. Its colored in red to draw the users attention to the screen.
+Enemy name - The enemy name is taken randomly from the enemy.txt file. It is colored in red to draw the user's attention to the screen.
 
-Enemy stats - The enemy stats are generated using the gen_enemy() function that calls the Enemy class. The stats consist of Health, Attack, Defense, Chance and Name. Each stat generates a random number between the values set in the function i.e. health = random.randint(80, 100)
+Enemy stats - The enemy stats are generated using the gen_enemy() function that calls the Enemy class. The stats consist of Health, Attack, Defense, Chance, and Name. Each stat generates a random number between the values set in the function i.e. health = random.randint(80, 100)
 ![Initiating Battle](/docs/screenshots/battle.webp)
 
 #### **Engaged in Battle**
@@ -167,37 +167,37 @@ Enemy stats - The enemy stats are generated using the gen_enemy() function that 
 User Story: As a user, I want to access a fun engaging story narrative throughout the game.
 `
 
-When the battle begins user will have first turn to attack, they will be prompted to enter "C" for "Close attack", "R" for "Ranged" attack or "M" for "Magic" attack.
+When the battle begins users will have the first turn to attack, they will be prompted to enter "C" for "Close attack", "R" for "Ranged" attack, or "M" for "Magic" attack.
 
 After selecting an attack the following text will display: "You wind up for the attack..."
 
-The strike_chance() function is called to determine whether the players attack is successful. If attack is successful the amount of health lost by the enemy is calculated by the attack value used minus the enemys defense value i.e. 
+The strike_chance() function is called to determine whether the player's attack is successful. If the attack is successful the amount of health lost by the enemy is calculated by the attack value used minus the enemy's defense value i.e. 
 
 if choice == "c":
             damage = guardian.get_attack() - enemy.get_e_defence()
 
 The user will be alerted that their attack was successful and the enemy's new health stat will be displayed. If the user's attack was not successful the following text will be displayed: "You missed! Enemy dodged your attack".
 
-It will be the enemy's turn now, the enemy_attack() function is now called to determine if enemy attack will be successful. If attack is successful the amount of health lost by the user is calculated by the attack value used minus the user's defense value i.e. 
+It will be the enemy's turn now, the enemy_attack() function is now called to determine if the enemy attack will be successful. If the attack is successful the amount of health lost by the user is calculated by the attack value used minus the user's defence value i.e. 
 
 loss = attack_value - defence
 
-If enemy attack is successful the user will be alerted and their new health stat will be displayed.
+If the enemy attack is successful the user will be alerted and their new health stat will be displayed.
 
-Some of the text displayed with the color Red to engage the user and signify the imagery of blood lost.
+Some of the text is displayed with the color Red to engage the user and signify the imagery of blood loss.
 
 ![Engaged in Battle](/docs/screenshots/battle1.webp)
 
 #### **Battle Victory**
 `
-User Story: As a user, I want find loot and upgrade my stats.
+User Story: As a user, I want to find loot and upgrade my stats.
 `
 
 If the enemy is defeated by the user the user will be alerted i.e. "Centurian, has been slain!"
 
-The loot() function is then called. It picks a randomint between 0 and 7 and if the value provided is greater then the users current luck value the enemy wont drop any loot and the following text will display: "That creature dropped no loot..."
+The loot() function is then called. It picks a random.int between 0 and 7 and if the value provided is greater than the user's current luck value the enemy won't drop any loot and the following text will display: "That creature dropped no loot..."
 
-If the users luck value is greater then the randomint then the enemy will drop loot. It will be displayed to the user with the text "The enemy dropped an....." along with the loot values retreived from the loot .txt files. The value of the loot will be added to the user's current stats and stats will be displayed to the user.
+If the user's luck value is greater than the random.int then the enemy will drop loot. It will be displayed to the user with the text "The enemy dropped an....." along with the loot values retrieved from the loot .txt files. The value of the loot will be added to the user's current stats and stats will be displayed to the user.
 
 ![Battle Victory](/docs/screenshots/battle2.webp)
 
@@ -206,7 +206,7 @@ If the users luck value is greater then the randomint then the enemy will drop l
 User Story: As a user, I want to access a fun engaging story narrative throughout the game.
 `
 
-If the user is defeated a new screen will be displayed alerting the user that they have been slain along with some Game Over ascii art. The user will also see some text advising to press any key to return to Welcome Screen.
+If the user is defeated a new screen will be displayed alerting the user that they have been slain along with some Game Over ASCII art. The user will also see some text advising to press any key to return to Welcome Screen.
 
 ![Battle Lost](/docs/screenshots/gameover.webp)
 
@@ -215,7 +215,7 @@ If the user is defeated a new screen will be displayed alerting the user that th
 User Story: As a user, I want to access a fun engaging story narrative throughout the game.
 `
 
-If the user completes the adventure without dying they will be provided a message stating that they "Reclaimed The Light" and a thank you message. Ascii Text along with ascii art is used here to grab the users attention. The user will be then prompted to return to the Welcome Screen where they can start another adventure if they choose to do so.
+If the user completes the adventure without dying they will be provided a message stating that they "Reclaimed The Light" and a thank you message. Ascii Text along with Ascii art is used here to grab the user's attention. The user will be then prompted to return to the Welcome Screen where they can start another adventure if they choose to do so.
 
 ![EZGIF Animation](/docs/gifs/reclaim_2.gif)
 
@@ -225,7 +225,7 @@ If the user completes the adventure without dying they will be provided a messag
 For this project I used the following libraries:
 
 ### ***random:***
--   randint was used throughout the project to produce random stats or pick a random index in choice list for loot.
+-   randint was used throughout the project to produce random stats or pick a random index in the choice list for loot.
 
 ### ***time:***
 -   time was imported to make use of the sleep function which was used throughout the adventure. It was implemented to increase the time between narrative text's showing in also provided a level of intrigue for the user i.e. when opening a loot box
@@ -234,16 +234,16 @@ For this project I used the following libraries:
 -   math.ceil was used to make sure the calculated loss from enemy or character strike was rounded upward to its nearest integer.
 
 ### ***pprint:***
--   pprint was used to print out the user's/enemy's stats and display them in a nice fashion for the user.
+-   pprint was used to print out the user's/enemy's stats and nicely display them for the user.
 
 ### ***getch:***
 -   pause imported from getch to pause the gameplay and give the user more time to review the story.
 
 ### ***os:***
--   system used in conjunction with the clear/cls command to clear the display so the user would not get overwhelmed in reams of outdated data from previous narratives.
+-   system used in conjunction with the clear/cls command to clear the display so the user would not get overwhelmed by reams of outdated data from previous narratives.
 
 ### ***colorama:***
--   Fore & Style were imported from colorama to style the font, ascii text and ascii art with color.
+-   Fore & Style were imported from colorama to style the font, ASCII text, and ASCII art with color.
 
 [Back to top &uarr;](#contents)
 
@@ -279,19 +279,19 @@ For this project I used the following libraries:
 1. [Xnip](https://www.xnipapp.com/)
     - Xnip was used to capture all the game screenshots.
 1. [Lucidchart.com](https://www.lucidchart.com/pages/)
-    - The Lucidchart app was used to create the apps flowcharts.
+    - The Lucidchart app was used to create the app's flowcharts.
 
 [Back to top &uarr;](#contents)
 
 ## **Testing**
-I have included details of testing both during development and post development in a separate document called [TESTING.md](TESTING.md)
+I have included details of testing both during development and post-development in a separate document called [TESTING.md](TESTING.md)
 
 ## **Future Updates**
 
 I would like to add the following updates in the future when time permits:
 
 1. Enemy Weakness - I would like to add a weakness stat for the enemy to a specific Guardian attack, it wasn't part of my original scope for the adventure but something I would be interested in implementing in the future.
-2. Battle graphic animations - show the user and enemy in batlle with moving Graphics.
+2. Battle graphic animations - show the user and enemy in battle with moving Graphics.
 3. Sound Effects - I would like to apply sound effects for the different Narratives and for the battle sequences.
 
 [Back to top &uarr;](#contents)
@@ -303,7 +303,7 @@ I would like to add the following updates in the future when time permits:
 This project was developed by forking a specialized [Code Institute template](https://github.com/Code-Institute-Org/python-essentials-template) which simulates a terminal in the web browser. 
 
 1. Click Use this template
-2. Name repository
+2. Name the repository
 3. Launch using the Gitpod web extension
 4. Pin project in Gitpod workspaces
 
@@ -329,7 +329,7 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 The below steps were followed to deploy this project to Heroku:
 1. Go to [Heroku](https://dashboard.heroku.com/apps) and click "New" to create a new app.
 2. After choosing the app name and setting the region, press "Create app".
-3. Go to "Settings" and navigate to Config Vars. Add a Config Var with a key word of called PORT and a value of 8000.
+3. Go to "Settings" and navigate to Config Vars. Add a Config Var with a keyword called PORT and a value of 8000.
 4. Still in the "Settings", navigate to Buildpacks and add buildpacks for Python and NodeJS (in order).
 5. Leave "Settings" and go to "Deploy". Scroll down and set Deployment Method to GitHub.
 Once GitHub is chosen, find your repository and connect it to Heroku.
@@ -341,7 +341,7 @@ Once GitHub is chosen, find your repository and connect it to Heroku.
 ## **Credits**
 
 1. [Code Institute Template](https://github.com/Code-Institute-Org/python-essentials-template)
-    - This repository was created using the template provided by Code Institute. Also, without the knowledge gained through the course work, I would not be able to create this site so thank you Code Institute.
+    - This repository was created using the template provided by Code Institute. Also, without the knowledge gained through the coursework, I would not be able to create this site so thank you Code Institute.
 1. [Corey Schafer](https://www.youtube.com/watch?v=ZDa-Z5JzLYM)
     - Corey Schafer for the Python OOP Tutorial series for general reference on working with classes and OOP in general.
 1. [delftstack.com](https://www.delftstack.com/howto/python/python-clear-console/)
@@ -353,10 +353,10 @@ Once GitHub is chosen, find your repository and connect it to Heroku.
 
 ## **Acknowledgements**
 
-- To my amazing wife Denise who has supported me every day and kept me motivated. After P1 & P2 it was short and stressful turn around for P3, Denise consistantly encouraged me to work on the project while keeping our 5-year-old son entertained. I couldn't do this without her.
+- To my amazing wife Denise who has supported me every day and kept me motivated. After P1 & P2 it was a short and stressful turnaround for P3, Denise consistently encouraged me to work on the project while keeping our 5-year-old son entertained. I couldn't do this without her.
 - My son Alex for always making me laugh and never getting mad when Dad had to study.
-- My class mate Sean Johnston for the continuous testing of my project throughout and for being there to bounce ideas off.
-- My class mates Victoria Traynor & Monica Murray for reviewing and testing my Project thanks guys.
-- To my mentor Daisy Mc Girr, this was my first full project with Daisy and she really goes above and beyond. Even outside of the project planning she is great for advice and is a great help to the Slack community too.
+- My classmate Sean Johnston for the continuous testing of my project throughout and for being there to bounce ideas off.
+- My classmates Victoria Traynor & Monica Murray for reviewing and testing my Project thanks guys.
+- To my mentor Daisy Mc Girr, this was my first full project with Daisy and she goes above and beyond. Even outside of project planning she is great for advice and is a great help to the Slack community too.
 
 [Back to top &uarr;](#contents)
