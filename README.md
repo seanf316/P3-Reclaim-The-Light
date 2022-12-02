@@ -45,7 +45,7 @@ This is my third portfolio project for [Code Institute](https://codeinstitute.ne
 
 ### **Imagery**
 
-I have included Ascii text and Ascii art throughout the adventure to grab the user's attention and provide an aesthetically pleasing experience. The font used for the Ascii text was ANSI Shadow and provided by [patorjk.com](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20). The Ascii art was retrieved from a few different locations - [ascii.co.uk](https://ascii.co.uk/art) & [https://www.asciiart.eu/](https://www.asciiart.eu/).
+I have included Ascii text and Ascii art throughout the adventure to grab the user's attention and provide an aesthetically pleasing experience. The font used for the Ascii text was ANSI Shadow and was provided by [patorjk.com](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20). The Ascii art was retrieved from a few different locations - [ascii.co.uk](https://ascii.co.uk/art) & [https://www.asciiart.eu/](https://www.asciiart.eu/).
 
 ### **Colour Scheme**
 
@@ -228,7 +228,7 @@ For this project I used the following libraries:
 -   randint was used throughout the project to produce random stats or pick a random index in the choice list for loot.
 
 ### ***time:***
--   time was imported to make use of the sleep function which was used throughout the adventure. It was implemented to increase the time between narrative text's showing in also provided a level of intrigue for the user i.e. when opening a loot box
+-   time was imported to make use of the sleep function which was used throughout the adventure. It was implemented to increase the time between narrative text's showing and it also provided a level of intrigue for the user i.e. when opening a loot box
 
 ### ***math:***
 -   math.ceil was used to make sure the calculated loss from enemy or character strike was rounded upward to its nearest integer.
@@ -349,7 +349,7 @@ Once GitHub is chosen, find your repository and connect it to Heroku.
 1. [Stackoverflow](https://stackoverflow.com/)
     - I found myself on Stackoverflow so many times researching issues with python code. This a fantastic place to learn and troubleshoot code.
 1. [Slack](https://slack.com/intl/en-ie/)
-    - The slack community is great and I reached out to fellow students who had already completed their P3 for their advice and got some nice tips.
+    - The slack community is great and I reached out to fellow students who had already completed their P3 for their advice and got some nice tips and feedback.
 
 ## **Acknowledgements**
 
