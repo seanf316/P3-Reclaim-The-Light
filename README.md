@@ -350,6 +350,8 @@ Once GitHub is chosen, find your repository and connect it to Heroku.
     - I found myself on Stackoverflow so many times researching issues with python code. This a fantastic place to learn and troubleshoot code.
 1. [Slack](https://slack.com/intl/en-ie/)
     - The slack community is great and I reached out to fellow students who had already completed their P3 for their advice and got some nice tips and feedback.
+1. [pixabay.com](https://pixabay.com/)
+    - Favicon image was taken from [pixabay.com](https://pixabay.com/), the image was free to use. The creaters name is OpenClipart-Vectors.
 
 ## **Acknowledgements**
 
