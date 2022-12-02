@@ -437,6 +437,4 @@ def battle(enemy, guardian):
             if guardian.get_health() < 100:
                 guardian.set_health(100)
             loot(guardian.get_luck(), guardian)
-            if guardian.get_luck() > 10:
-                guardian.set_luck(10)
             return True

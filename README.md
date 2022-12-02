@@ -284,7 +284,7 @@ For this project I used the following libraries:
 [Back to top &uarr;](#contents)
 
 ## **Testing**
-I have included details of testing both during development and post development in a separate document called TESTING.md.
+I have included details of testing both during development and post development in a separate document called [TESTING.md](TESTING.md)
 
 ## **Future Updates**
 
